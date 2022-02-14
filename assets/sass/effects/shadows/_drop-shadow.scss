@@ -1,0 +1,48 @@
+@mixin drop-shadow-sm {
+	box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+	-ms-box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+	-moz-box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+@mixin drop-shadow-md {
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 6px 20px;
+	-ms-box-shadow: rgba(0, 0, 0, 0.16) 0px 6px 20px;
+	-moz-box-shadow: rgba(0, 0, 0, 0.16) 0px 6px 20px;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.16) 0px 6px 20px;
+}
+
+@mixin drop-shadow-lg {
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 8px 24px;
+	-ms-box-shadow: rgba(0, 0, 0, 0.24) 0px 8px 24px;
+	-moz-box-shadow: rgba(0, 0, 0, 0.24) 0px 8px 24px;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.24) 0px 8px 24px;
+}
+
+@mixin drop-shadow-xl {
+	box-shadow: rgba(0, 0, 0, 0.32) 0px 12px 32px;
+	-ms-box-shadow: rgba(0, 0, 0, 0.32) 0px 12px 32px;
+	-moz-box-shadow: rgba(0, 0, 0, 0.32) 0px 12px 32px;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.32) 0px 12px 32px;
+}
+
+@mixin drop-shadow-2xl {
+	box-shadow: rgba(0, 0, 0, 0.48) 0px 16px 48px;
+	-ms-box-shadow: rgba(0, 0, 0, 0.48) 0px 16px 48px;
+	-moz-box-shadow: rgba(0, 0, 0, 0.48) 0px 16px 48px;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.48) 0px 16px 48px;
+}
+
+@mixin drop-shadow-none {
+	box-shadow: none;
+	-ms-box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+}
+
+@mixin drop-shadow-inner {
+	box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+	-ms-box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+	-moz-box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+	-webkit-box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+}

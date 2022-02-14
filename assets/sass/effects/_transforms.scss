@@ -1,0 +1,47 @@
+@mixin transform($transform) {
+	transform: $transform;
+	-o-transform: -o-#{$transform};
+	-ms-transform: -ms-#{$transform};
+	-moz-transform: -moz-#{$transform};
+	-webkit-transform: -webkit-#{$transform};
+}
+
+@mixin transform-style($transform) {
+	transform-style: $transform;
+	-o-transform-style: -o-#{$transform};
+	-ms-transform-style: -ms-#{$transform};
+	-moz-transform-style: -moz-#{$transform};
+	-webkit-transform-style: -webkit-#{$transform};
+}
+
+@mixin transform-origin($transform) {
+	transform-origin: $transform;
+	-o-transform-origin: -o-#{$transform};
+	-ms-transform-origin: -ms-#{$transform};
+	-moz-transform-origin: -moz-#{$transform};
+	-webkit-transform-origin: -webkit-#{$transform};
+}
+
+@mixin transform-origin-x($transform) {
+	transform-origin-x: $transform;
+	-o-transform-origin-x: -o-#{$transform};
+	-ms-transform-origin-x: -ms-#{$transform};
+	-moz-transform-origin-x: -moz-#{$transform};
+	-webkit-transform-origin-x: -webkit-#{$transform};
+}
+
+@mixin transform-origin-y($transform) {
+	transform-origin-y: $transform;
+	-o-transform-origin-y: -o-#{$transform};
+	-ms-transform-origin-y: -ms-#{$transform};
+	-moz-transform-origin-y: -moz-#{$transform};
+	-webkit-transform-origin-y: -webkit-#{$transform};
+}
+
+@mixin transform-origin-z($transform) {
+	transform-origin-z: $transform;
+	-o-transform-origin-z: -o-#{$transform};
+	-ms-transform-origin-z: -ms-#{$transform};
+	-moz-transform-origin-z: -moz-#{$transform};
+	-webkit-transform-origin-z: -webkit-#{$transform};
+}

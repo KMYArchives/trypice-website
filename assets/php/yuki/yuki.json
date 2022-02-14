@@ -1,0 +1,23 @@
+{
+	"version": "2.0.0",
+	"paths": {
+		"js": "assets/js/",
+		"bundle": "bundle/",
+		"css": "assets/css/",
+		"json": "assets/json/",
+		"image": "assets/img/"
+	},
+	"options": {
+		"level": 9,
+		"maxage": 31556926,
+		"etag": "91242c4a4111df4cd6be844dfa3b89b5"
+	},
+	"bundle": [
+		"humanize",
+		"lodash",
+		"lozad",
+		"xss",
+		"axios",
+		"platform"
+	]
+}

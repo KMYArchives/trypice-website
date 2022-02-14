@@ -1,0 +1,39 @@
+.account-side{
+	top: 0;
+	left: 0;
+	height: 100%;
+	margin: 0 20vh;
+	position: fixed;
+	font-size: 1.25vh;
+	width: $wdith_user_box;
+	background: $firstColor;
+	@include drop-shadow-md;
+	margin-top: $header_size;
+
+	.menu{
+		.item{
+			margin-top: .5vh;
+			&:first-child{ margin-top: 0; }
+		}
+	}
+
+	.user{
+		text-align: center;
+
+		.name{
+			margin-top: 1vh;
+			cursor: pointer;
+			@include profile-name-bar;
+		}
+
+		.avatar{
+			position: relative;
+			margin-top: -5vh !important;
+			@include profile-avatar-circle;
+		}
+		
+		.cover-sidebar{ @include profile-cover(15vh); }
+	}
+
+	@include profile-menu;
+}

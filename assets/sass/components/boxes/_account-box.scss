@@ -1,0 +1,45 @@
+.account-box{
+	top: 0;
+	right: 0;
+	display: none;
+	position: fixed;
+	font-size: 1.25vh;
+	z-index: 99999999;
+	width: $wdith_user_box;
+	background: $firstColor;
+	@include drop-shadow-sm;
+	margin-top: $header_size;
+	margin-right: $wdith_user_box;
+	border-bottom-left-radius: $padding2;
+	border-bottom-right-radius: $padding2;
+
+	.user{
+		.name{
+			top: 0;
+			left: 0;
+			right: 0;
+			width: 100%;
+			z-index: 999999;
+			position: absolute;
+			margin-top: 11.52vh;
+			text-decoration: none;
+			@include text-shadow-sm;
+			@include profile-name-bar;
+		}
+
+		.avatar{
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			margin: auto;
+			margin-top: 2vh;
+			position: absolute;
+			@include profile-avatar-circle;
+		}
+
+		.cover-box{ @include profile-cover; }
+	}
+
+	@include profile-menu;
+}

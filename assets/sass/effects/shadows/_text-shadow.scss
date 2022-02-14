@@ -1,0 +1,48 @@
+@mixin text-shadow-sm {
+	text-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+	-ms-text-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+	-moz-text-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+	-webkit-text-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+@mixin text-shadow-md {
+	text-shadow: rgba(0, 0, 0, 0.16) 0px 6px 20px;
+	-ms-text-shadow: rgba(0, 0, 0, 0.16) 0px 6px 20px;
+	-moz-text-shadow: rgba(0, 0, 0, 0.16) 0px 6px 20px;
+	-webkit-text-shadow: rgba(0, 0, 0, 0.16) 0px 6px 20px;
+}
+
+@mixin text-shadow-lg {
+	text-shadow: rgba(0, 0, 0, 0.24) 0px 8px 24px;
+	-ms-text-shadow: rgba(0, 0, 0, 0.24) 0px 8px 24px;
+	-moz-text-shadow: rgba(0, 0, 0, 0.24) 0px 8px 24px;
+	-webkit-text-shadow: rgba(0, 0, 0, 0.24) 0px 8px 24px;
+}
+
+@mixin text-shadow-xl {
+	text-shadow: rgba(0, 0, 0, 0.32) 0px 12px 32px;
+	-ms-text-shadow: rgba(0, 0, 0, 0.32) 0px 12px 32px;
+	-moz-text-shadow: rgba(0, 0, 0, 0.32) 0px 12px 32px;
+	-webkit-text-shadow: rgba(0, 0, 0, 0.32) 0px 12px 32px;
+}
+
+@mixin text-shadow-2xl {
+	text-shadow: rgba(0, 0, 0, 0.48) 0px 16px 48px;
+	-ms-text-shadow: rgba(0, 0, 0, 0.48) 0px 16px 48px;
+	-moz-text-shadow: rgba(0, 0, 0, 0.48) 0px 16px 48px;
+	-webkit-text-shadow: rgba(0, 0, 0, 0.48) 0px 16px 48px;
+}
+
+@mixin text-shadow-none {
+	text-shadow: none;
+	-ms-text-shadow: none;
+	-moz-text-shadow: none;
+	-webkit-text-shadow: none;
+}
+
+@mixin text-shadow-inner {
+	text-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+	-ms-text-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+	-moz-text-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+	-webkit-text-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+}

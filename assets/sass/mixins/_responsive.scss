@@ -1,0 +1,19 @@
+@mixin large {
+    @media (min-width: 992px) and (max-width: 1199.98px) { @content; }
+}
+
+@mixin medium {
+    @media (min-width: 768px) and (max-width: 991.98px) { @content; }
+}
+
+@mixin extra-large {
+    @media (max-width: 1199.98px) { @content; }
+}
+
+@mixin small ($type: 'port') {
+    @if $type == 'port' {
+        @media (max-width: 575.98px) { @content; }
+    } @else if $type == 'land' {
+        @media (min-width: 576px) and (max-width: 767.98px) { @content; }
+    }
+}

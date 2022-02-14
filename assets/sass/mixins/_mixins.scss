@@ -1,0 +1,53 @@
+@mixin icons{
+	.fab, 
+	.far, 
+	.fas, 
+	.fa-thin, 
+	.fa-solid, 
+	.fa-light, 
+	.fa-brans, 
+	.fa-regular, 
+	.fa-duotone{
+		@content;
+	}
+}
+
+@mixin scrollbar {
+	&::-webkit-scrollbar {
+		position: fixed;
+		width: $padding5;
+		z-index: 9999999;
+		background: $firstColor;
+		border-bottom-left-radius: $padding_base;
+		border-bottom-right-radius: $padding_base;
+
+		@content;
+	}
+
+	&::-webkit-scrollbar-thumb { background: $borderColor; }
+}
+
+@mixin hover-custom {
+	&:hover, &:focus{
+		@content;
+	}
+}
+
+@mixin no-text-select {
+	user-select: none;
+	-ms-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+}
+
+@mixin hover($background: $secondColor, $color: inherit, $border-color: $borderColor) {
+	@include hover-custom{
+		outline: none;
+		color: $color;
+		transition: .3s ease all 0s;
+		border-color: $border-color;
+		background-color: $background;
+
+		@content;
+	}
+}

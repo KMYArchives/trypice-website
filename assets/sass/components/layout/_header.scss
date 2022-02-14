@@ -1,0 +1,57 @@
+header{
+	top: 0;
+	width: 100%;
+	position: fixed;
+	z-index: 99999999;
+	height: $header_size;
+	background: $firstColor;
+	@include drop-shadow-sm;
+	line-height: $header_size;
+
+	.header-content{
+		display: flex;
+		margin: 0 20vh;
+		position: absolute;
+		align-items: center;
+		width: $width_screen;
+		justify-content: flex-end;
+		
+		nav{
+			order: 2;
+			font-size: 1.35vh;
+	
+			.item{
+				float: left;
+				cursor: pointer;
+				width: $menu_size;
+				text-align: center;
+				height: $header_size;
+				line-height: $header_size;
+				border-color: transparent;
+	
+				img{
+					width: 60%;
+					height: 60%;
+					margin-left: .25vh;
+					text-align: center;
+					border-radius: 50%;
+					margin-top: $header_size / 5;
+				}
+	
+				@include hover;
+			}
+	
+			.actived{ background: $secondColor; }
+			.user{ width: $header_size !important; }
+		}
+	}
+}
+
+.header-scroll-effect{
+	@include backdrop-blur($padding2);
+	
+	background: rgba(
+		$alpha: .7,
+		$color: $firstColor,
+	);
+}

@@ -1,0 +1,62 @@
+@mixin filter-blur($size) {
+	filter: blur($size);
+	-ms-filter: blur($size);
+	-moz-filter: blur($size);
+	-webkit-filter: blur($size);
+}
+
+@mixin filter-sepia($size) {
+	filter: sepia($size);
+	-ms-filter: sepia($size);
+	-moz-filter: sepia($size);
+	-webkit-filter: sepia($size);
+}
+
+@mixin filter-invert($size) {
+	filter: invert($size);
+	-ms-filter: invert($size);
+	-moz-filter: invert($size);
+	-webkit-filter: invert($size);
+}
+
+@mixin filter-opacity($size) {
+	filter: opacity($size);
+	-ms-filter: opacity($size);
+	-moz-filter: opacity($size);
+	-webkit-filter: opacity($size);
+}
+
+@mixin filter-saturate($size) {
+	filter: saturate($size);
+	-ms-filter: saturate($size);
+	-moz-filter: saturate($size);
+	-webkit-filter: saturate($size);
+}
+
+@mixin filter-contrast($size) {
+	filter: contrast($size);
+	-ms-filter: contrast($size);
+	-moz-filter: contrast($size);
+	-webkit-filter: contrast($size);
+}
+
+@mixin filter-grayscale($size) {
+	filter: grayscale($size);
+	-ms-filter: grayscale($size);
+	-moz-filter: grayscale($size);
+	-webkit-filter: grayscale($size);
+}
+
+@mixin filter-brightness($size) {
+	filter: brightness($size);
+	-ms-filter: brightness($size);
+	-moz-filter: brightness($size);
+	-webkit-filter: brightness($size);
+}
+
+@mixin filter-hue-rotate($size) {
+	filter: hue-rotate($size);
+	-ms-filter: hue-rotate($size);
+	-moz-filter: hue-rotate($size);
+	-webkit-filter: hue-rotate($size);
+}

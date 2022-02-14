@@ -1,0 +1,57 @@
+@mixin image-parallax($image, $speed: .5) {
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-image: url($image);
+
+	@include transform(
+		translateY(
+			-$speed * (
+				100vh - (
+					100vh - 100vw * $image_height / $image_width
+				)
+			)
+		)
+	);
+}
+
+@mixin image-hover-zoom($scale_base, $scale_zoom, $duration) {
+	@include transform(
+		scale($scale_base)
+	);
+	
+	transition: $duration ease-in-out;
+	&:hover, &:focus {
+		@include transform(
+			scale($scale_zoom),
+		);
+	}
+
+	@content;
+}
+
+@mixin image-hover-rotate($angle_base, $angle_rotate, $duration) {
+	@include transform(
+		rotate($angle_base)
+	);
+	
+	transition: $duration ease-in-out;
+	&:hover, &:focus {
+		@include transform(
+			rotate($angle_rotate * -1)
+		);
+	}
+
+	@content;
+}
+
+@mixin image-hover-rounded($round_base, $round_effect, $duration) {
+	border-radius: $round_base;
+	transition: $duration ease-in-out;
+
+	&:hover, &:focus {
+		border-radius: $round_effect;
+	}
+
+	@content;
+}

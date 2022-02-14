@@ -1,0 +1,19 @@
+@mixin select {
+	appearance: none;
+	-o-appearance: none;
+	-ms-appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+}
+
+@mixin placeholder($opacity: .7, $font_weight: 500, $color: $fontColor) {
+	&::placeholder, 
+	&:-o-placeholder, 
+	&::-moz-placeholder, 
+	&:-ms-input-placeholder,
+	&::-webkit-input-placeholder{
+		opacity: $opacity;
+		color: $fontColor;
+		font-weight: $font_weight;
+	}
+}

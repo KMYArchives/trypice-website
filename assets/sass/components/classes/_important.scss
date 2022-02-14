@@ -1,0 +1,140 @@
+.hide{ display: none !important; }
+.show{ display: block !important; }
+.full-width{ width: 100% !important; }
+.auto-height{ height: auto !important; }
+.no-overflow{ overflow: hidden !important; }
+.bg-second{ background: $secondColor !important; }
+
+.ta-left{ text-align: left !important; }
+.ta-right{ text-align: right !important; }
+.ta-center{ text-align: center !important; }
+
+.csr-text{ cursor: text !important; }
+.csr-point{ cursor: pointer !important; }
+.csr-default{ cursor: default !important; }
+.csr-crosshair{ cursor: crosshair !important; }
+
+.no-hover{
+	color: inherit !important;
+	cursor: default !important;
+	text-decoration: none !important;
+	border-color: transparent !important;
+	
+	&:hover, &:focus{
+		color: inherit !important;
+		background: transparent !important;
+	}
+}
+
+.red-hover{
+	&:hover, &:focus{
+		color: $firstColor !important;
+		background: $redColor !important;
+	}
+}
+
+.pdd{ padding: $padding_base !important; }
+.pdd-top{ padding-top: $padding_base !important; }
+.pdd-lef{ padding-left: $padding_base !important; }
+.pdd-rig{ padding-right: $padding_base !important; }
+.pdd-bot{ padding-bottom: $padding_base !important; }
+
+.no-pdd{ padding: 0 !important; }
+.no-pdd-top{ padding-top: 0 !important; }
+.no-pdd-lef{ padding-left: 0 !important; }
+.no-pdd-rig{ padding-right: 0 !important; }
+.no-pdd-bot{ padding-bottom: 0 !important; }
+
+.mgr-top-bot{
+	margin-top: $padding_base !important;
+	margin-bottom: $padding_base !important;
+}
+
+.mgr-lef-rig{
+	margin-left: $padding_base !important;
+	margin-right: $padding_base !important;
+}
+
+.mgr{ margin: $padding_base !important; }
+.mgr-top{ margin-top: $padding_base !important; }
+.mgr-lef{ margin-left: $padding_base !important; }
+.mgr-rig{ margin-right: $padding_base !important; }
+.mgr-bot{ margin-bottom: $padding_base !important; }
+
+.no-mgr-top-bot{
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+}
+
+.no-mgr-lef-rig{
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+}
+
+.no-mgr{ margin: 0 !important; }
+.no-mgr-top{ margin-top: 0 !important; }
+.no-mgr-lef{ margin-left: 0 !important; }
+.no-mgr-rig{ margin-right: 0 !important; }
+.no-mgr-bot{ margin-bottom: 0 !important; }
+
+.no-bdr-top-bot{
+	border-top: none !important;
+	border-bottom: none !important;
+}
+
+.no-bdr-lef-rig{
+	border-left: none !important;
+	border-right: none !important;
+}
+
+.rem-mgr-top{ margin-top: -$padding_base !important; }
+.rem-mgr-lef{ margin-left: -$padding_base !important; }
+.rem-mgr-rig{ margin-right: -$padding_base !important; }
+.rem-mgr-bot{ margin-bottom: -$padding_base !important; }
+
+.rem-mgr-top-bot{
+	margin-top: -$padding_base !important; 
+	margin-bottom: -$padding_base !important; 
+}
+
+.rem-mgr-lef-rig{
+	margin-left: -$padding_base !important; 
+	margin-right: -$padding_base !important; 
+}
+
+.rem-mgr-top-mid{ margin-top: -$padding2 !important; }
+.rem-mgr-lef-mid{ margin-left: -$padding2 !important; }
+.rem-mgr-rig-mid{ margin-right: -$padding2 !important; }
+.rem-mgr-bot-mid{ margin-bottom: -$padding2 !important; }
+
+.rem-mgr-top-bot-mid{
+	margin-top: -$padding2 !important; 
+	margin-bottom: -$padding2 !important; 
+}
+
+.rem-mgr-lef-rig-mid{
+	margin-left: -$padding2 !important; 
+	margin-right: -$padding2 !important; 
+}
+
+.no-bdr{ border: none !important; }
+.no-bdr-top{ border-top: none !important; }
+.no-bdr-lef{ border-left: none !important; }
+.no-bdr-rig{ border-right: none !important; }
+.no-bdr-bot{ border-bottom: none !important; }
+
+.bdr{ border: $border_size solid $borderColor !important; }
+.bdr-top{ border-top: $border_size solid $borderColor !important; }
+.bdr-lef{ border-left: $border_size solid $borderColor !important; }
+.bdr-rig{ border-right: $border_size solid $borderColor !important; }
+.bdr-bot{ border-bottom: $border_size solid $borderColor !important; }
+
+.bdr-top-bot{
+	border-top: $border_size solid $borderColor !important;
+	border-bottom: $border_size solid $borderColor !important;
+}
+
+.bdr-lef-rig{
+	border-left: $border_size solid $borderColor !important;
+	border-right: $border_size solid $borderColor !important;
+}

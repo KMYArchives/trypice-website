@@ -1,0 +1,63 @@
+@mixin profile-menu{
+	.menu{
+		padding: 1.3vh;
+
+		.item{
+			display: block;
+			cursor: pointer;
+			line-height: 4.75vh;
+			border-radius: $padding2;
+			padding-left: $padding_base;
+			padding-right: $padding_base;
+			border-left-color: transparent;
+
+			@include icons{
+				float: left;
+				width: 4.75vh;
+				text-align: center;
+				line-height: 4.75vh;
+				margin-right: $padding_base;
+				margin-left: -$padding_base;
+			}
+
+			@include hover{
+				@include drop-shadow-sm;
+				transition: .3s ease-in-out;
+				border-left: $padding1 solid $blueColor;
+			}
+		}
+
+		.actived{
+			@include drop-shadow-sm;
+			background: $secondColor;
+			border-left: $padding1 solid $blueColor;
+		}
+	}
+}
+
+@mixin profile-name-bar{
+	cursor: pointer;
+	font-size: 1.75vh;
+	text-align: center;
+	text-decoration: none;
+	@include text-shadow-sm;
+	line-height: $padding_base * 2;
+	background: rgba($color: $firstColor, $alpha: .75);
+	@include hover-custom{ text-decoration: underline; }
+}
+
+@mixin profile-avatar-circle{
+	width: 7vh;
+	border-radius: 50%;
+	@include drop-shadow-sm;
+}
+
+@mixin profile-cover($size: 15vh){
+	height: $size;
+	line-height: $size;
+	@include drop-shadow-sm;
+	@include filter-grayscale(100%);
+	background: url($bg_default_user) no-repeat center center;
+
+	@content;
+}

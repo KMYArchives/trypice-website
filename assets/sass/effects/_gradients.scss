@@ -1,0 +1,21 @@
+@mixin gradient-linear($direction, $color-stops...) {
+	@if is-direction($direction) == false {
+		$direction: 180deg;
+		$color-stops: $direction, $color-stops;
+	}
+
+	background: nth(nth($color-stops, 1), 1);
+	background: linear-gradient($direction, $color-stops);
+	background: -webkit-linear-gradient(egacy-direction($direction), $color-stops);
+}
+
+@mixin gradient-radial($direction, $color-stops...) {
+	@if is-direction($direction) == false {
+		$direction: 180deg;
+		$color-stops: $direction, $color-stops;
+	}
+
+	background: nth(nth($color-stops, 1), 1);
+	background: radial-gradient($direction, $color-stops);
+	background: -webkit-radial-gradient(legacy-direction($direction), $color-stops);
+}

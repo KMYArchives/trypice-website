@@ -1,0 +1,22 @@
+@import 'images-vars';
+@import '../mixins/mixins';
+@import '../effects/effects/filters';
+
+.logo{
+	order: 1;
+	height: 100%;
+	outline: none;
+	cursor: pointer;
+	width: $logo_size;
+	margin-right: auto;
+	height: $header_size;
+	background-size: 60%;
+	background-repeat: no-repeat;
+	background-image: url($company);
+	background-position: left center;
+
+	@include hover-custom{
+		transition: .3s ease all 0s;
+		@include filter-grayscale(100%);
+	}
+}

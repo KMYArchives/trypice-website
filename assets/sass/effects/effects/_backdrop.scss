@@ -1,0 +1,62 @@
+@mixin backdrop-blur($size) {
+	backdrop-filter: blur($size);
+	-ms-backdrop-filter: blur($size);
+	-moz-backdrop-filter: blur($size);
+	-webkit-backdrop-filter: blur($size);
+}
+
+@mixin backdrop-sepia($size) {
+	backdrop-filter: sepia($size);
+	-ms-backdrop-filter: sepia($size);
+	-moz-backdrop-filter: sepia($size);
+	-webkit-backdrop-filter: sepia($size);
+}
+
+@mixin backdrop-invert($size) {
+	backdrop-filter: invert($size);
+	-ms-backdrop-filter: invert($size);
+	-moz-backdrop-filter: invert($size);
+	-webkit-backdrop-filter: invert($size);
+}
+
+@mixin backdrop-opacity($size) {
+	backdrop-filter: opacity($size);
+	-ms-backdrop-filter: opacity($size);
+	-moz-backdrop-filter: opacity($size);
+	-webkit-backdrop-filter: opacity($size);
+}
+
+@mixin backdrop-saturate($size) {
+	backdrop-filter: saturate($size);
+	-ms-backdrop-filter: saturate($size);
+	-moz-backdrop-filter: saturate($size);
+	-webkit-backdrop-filter: saturate($size);
+}
+
+@mixin backdrop-contrast($size) {
+	backdrop-filter: contrast($size);
+	-ms-backdrop-filter: contrast($size);
+	-moz-backdrop-filter: contrast($size);
+	-webkit-backdrop-filter: contrast($size);
+}
+
+@mixin backdrop-grayscale($size) {
+	backdrop-filter: grayscale($size);
+	-ms-backdrop-filter: grayscale($size);
+	-moz-backdrop-filter: grayscale($size);
+	-webkit-backdrop-filter: grayscale($size);
+}
+
+@mixin backdrop-brightness($size) {
+	backdrop-filter: brightness($size);
+	-ms-backdrop-filter: brightness($size);
+	-moz-backdrop-filter: brightness($size);
+	-webkit-backdrop-filter: brightness($size);
+}
+
+@mixin backdrop-hue-rotate($size) {
+	backdrop-filter: hue-rotate($size);
+	-ms-backdrop-filter: hue-rotate($size);
+	-moz-backdrop-filter: hue-rotate($size);
+	-webkit-backdrop-filter: hue-rotate($size);
+}

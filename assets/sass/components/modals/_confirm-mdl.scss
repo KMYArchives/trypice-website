@@ -1,0 +1,70 @@
+.confirm-mdl{
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 36vh;
+	height: auto;
+	margin: auto;
+	display: none;
+	padding: 1.6vh;
+	position: fixed;
+	margin-top: 10vh;
+	z-index: 9999999999999;
+	@include drop-shadow-sm;
+	background: $firstColor;
+	border-radius: $padding2;
+
+	.conf-footer{
+		box-sizing: border-box;
+		height: $padding_base * 3;
+		line-height: $padding_base * 3;
+
+		.btn{
+			width: 50%;
+			float: left;
+			cursor: pointer;
+			text-align: center;
+			box-sizing: border-box;
+			border-radius: $padding2;
+			border-left-color: transparent;
+
+			@include hover($secondColor) {
+				@include drop-shadow-sm;
+				transition: .3s ease-in-out;
+				border-left: $padding1 solid $blueColor;
+			}
+		}
+	}
+
+	.conf-header{
+		text-align: center;
+		height: $padding_base * 3;
+		line-height: $padding_base * 3;
+	}
+
+	.conf-content{
+		text-align: center;
+		margin-top: $padding_base;
+		padding-bottom: $padding_base * 2;
+
+		input{
+			width: 82%;
+			border: none;
+			color: $fontColor;
+			padding-left: 1vh;
+			padding-right: 1vh;
+			line-height: 4.25vh;
+			display: inline-block;
+			background: transparent;
+			border-radius: $padding2;
+			border-left: $padding1 solid transparent;
+
+			@include placeholder;
+			@include hover($fontColor, $firstColor) {
+				@include drop-shadow-sm;
+				border-color: $blueColor;
+				transition: border-color .3s ease-in-out;
+			}
+		}
+	}
+}

@@ -1,0 +1,5 @@
+const WorkspaceBox = {
+
+	// code...
+
+}

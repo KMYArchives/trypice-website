@@ -1,0 +1,13 @@
+@import 'autoload';
+html{ scroll-behavior: smooth; }
+
+body{
+	margin: 0;
+	padding: 0;
+	color: $fontColor;
+	font-family: $font;
+	background: $bgColor;
+	font-size: $fontSize;
+	
+	@import 'components/autoload';
+}

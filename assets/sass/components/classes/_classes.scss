@@ -1,0 +1,32 @@
+.left{ float: left; }
+.right{ float: right; }
+
+.red{ color: $redColor; }
+.blue{ color: $blueColor; }
+.green{ color: $greenColor; }
+
+.pointer{ cursor: pointer; }
+.default{ cursor: default; }
+.shadow{ @include drop-shadow-sm; }
+.actived{ background: $firstColor; }
+
+.shadow-sm{ @include drop-shadow-sm; }
+.shadow-md{ @include drop-shadow-md; }
+.shadow-lg{ @include drop-shadow-lg; }
+.shadow-xl{ @include drop-shadow-xl; }
+.shadow-2xl{ @include drop-shadow-2xl; }
+.shadow-none{ @include drop-shadow-none; }
+.shadow-inner{ @include drop-shadow-inner; }
+
+.upper{ text-transform: uppercase; }
+.lower{ text-transform: lowercase; }
+.underline{ text-transform: underline; }
+.capitalize{ text-transform: capitalize; }
+
+.link{
+	outline: none;
+	color: inherit;
+	cursor: pointer;
+	text-decoration: none;
+	&:hover, &:focus{ text-decoration: underline; }
+}

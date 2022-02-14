@@ -1,0 +1,15 @@
+.workspace-box{
+	top: 0;
+	right: 0;
+	width: 30vh;
+	height: 60vh;
+	display: none;
+	position: fixed;
+	z-index: 99999999;
+	text-align: center;
+	background: $firstColor;
+	@include drop-shadow-sm;
+	margin-top: $header_size;
+	border-bottom-left-radius: $padding2;
+	border-bottom-right-radius: $padding2;
+}

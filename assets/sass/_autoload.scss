@@ -1,0 +1,24 @@
+@import 'apis/animate';
+@import 'apis/normalize';
+@import 'apis/transition';
+
+@import 'setup/setup';
+@import 'setup/colors';
+@import 'setup/images';
+
+@import 'mixins/input';
+@import 'mixins/mixins';
+@import 'mixins/profile';
+@import 'mixins/responsive';
+
+@import 'effects/gradients';
+@import 'effects/transforms';
+@import 'effects/effects/filters';
+@import 'effects/effects/backdrop';
+@import 'effects/shadows/drop-shadow';
+@import 'effects/shadows/text-shadow';
+@import 'effects/effects/text-effects';
+@import 'effects/effects/image-effects';
+
+@import url('https://use.fontawesome.com/releases/v6.0.0/css/all.css');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap');

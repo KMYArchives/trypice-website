@@ -1,0 +1,33 @@
+# System folders
+[Ll]og/
+[Ll]ogs/
+[Tt]emp/
+[Tt]est/
+[Tt]este/
+.vscode/
+node_modules/
+
+# Compress formats
+*.gz
+*.7z
+*.zip
+*.rar
+*.tar
+*.tar.gz
+
+# System file's
+*.txt
+*.log
+*.lock
+*.error
+*lock.json
+
+# Files
+[Tt]es[Tt].php
+[Tt]es[Tt].jpg
+[Tt]es[Tt].png
+[Tt]es[Tt].gif
+[Tt]es[Tt].bmp
+[Tt]es[Tt].tiff
+[Tt]es[Tt].jpeg
+[Tt]es[Tt].webp

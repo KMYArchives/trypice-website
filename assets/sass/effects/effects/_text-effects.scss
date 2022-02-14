@@ -1,0 +1,39 @@
+@mixin text-image-inside($image) {
+	background-repeat: no-repeat;
+	background: url($image) 50% 50%;
+	transform: translate(-50%, -50%);
+	-webkit-text-fill-color: transparent;
+	-webkit-background-clip: text;
+
+	@content;
+}
+
+@mixin text-clip($gradient, $duration: 2s) {
+	background-clip: text;
+	background-size: 200% auto;
+	background-size: auto auto;
+	background-clip: border-box;
+	text-fill-color: transparent;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: effect $duration linear infinite;
+	background-image: linear-gradient($gradient);
+
+	@keyframes effect {
+		to {
+			background-position: 200% center;
+		}
+	}
+}
+
+@mixin text-gradient($gradient, $direction, $style: 'linear') {
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	@include gradient-linear($gradient, $direction);
+
+	@if $style == 'radial' {
+		@include gradient-radial($gradient_params);
+	} @else {
+		@include gradient-linear($gradient_params);
+	}
+}
