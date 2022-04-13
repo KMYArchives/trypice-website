@@ -69,9 +69,15 @@ const Events = {
 	},
 
 	scroll (element, callback) {
-		El.get(element).addEventListener(
-			'scroll', callback
-		)
+		if (element != 'body') {
+			El.get(element).addEventListener(
+				'scroll', callback
+			)
+		} else {
+			document.addEventListener(
+				'scroll', callback
+			)
+		}
 	},
 
 	select (element, callback) {

@@ -19,6 +19,7 @@ header{
 		nav{
 			order: 2;
 			font-size: 1.35vh;
+			@include no-text-select;
 	
 			.item{
 				float: left;

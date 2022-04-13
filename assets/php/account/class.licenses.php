@@ -5,27 +5,7 @@
 		private $db, $serial, $devices, $clients;
 		private $cols	=	"id, slug, prod_id, username, added_in";
 
-		public function get_data($return, $slug = null) {
-			if ($slug == null) {
-				foreach ($this->db->query("SELECT " . $this->cols . " FROM ws_licenses WHERE serial_number = ?" , [ 
-					$this->serial->encode(
-						Clean::default($_POST['serial'])
-					)
-				]) as $data) {
-					return $data[$return];
-				}
-			} else {
-				foreach ($this->db->query("SELECT " . $this->cols . " FROM ws_licenses WHERE slug = ?" , [ 
-					Clean::slug($slug)
-				]) as $data) {
-					return $data[$return];
-				}
-			}
-		}
-
 		public function get() {
-			Headers::setContentType('application/json');
-
 			foreach ($this->db->query("SELECT slug, favorited, order_id, serial_number, frequency, added_in, ws_products.name FROM ws_products, ws_licenses WHERE slug = ? AND username = ? LIMIT 1" , [ 
 				Clean::slug($_GET['slug']), 
 				$this->clients->get_id() 
@@ -34,8 +14,7 @@
 				$data['serial_number']	=	$this->serial->decode($data['serial_number']);
 
 				unset($data['name']);
-				Headers::setHttpCode(200);
-				echo json_encode($data);
+				Callback::json(200, $data);
 			}
 		}
 		
@@ -61,9 +40,7 @@
 				];
 			}
 
-			Headers::setHttpCode(200);
-			Headers::setContentType('application/json');
-			echo json_encode([
+			Callback::json(200, [
 				'list'	=>	$list,
 				'total'	=>	$this->db->query("SELECT count(*) FROM ws_licenses WHERE username = ? $prod_id $favorited", [
 					$this->clients->get_id()
@@ -73,34 +50,33 @@
 
 		public function create() {
 			$slug		=	Random::slug([ 36, 48 ]);
-			$prod_id	=	$this->product_name(Clean::string($_GET['product'], 'az'));
+
+			$prod_id	=	$this->product_name(
+				Clean::string($_GET['product'], 'az')
+			);
 			
 			if ($this->db->query("INSERT INTO ws_licenses(slug, prod_id, unique_key, serial_number, username) VALUES(?, ?, ?, ?, ?)", [
 				$slug,
 				$prod_id,
-				Utils::random(32, true, true, true, true),
+				Random::string(32, true, true, true, true),
 				$this->serial->encode($this->serial->create()),
 					
 				$this->clients->get_id(),
 			])) {
-				Headers::setHttpCode(200);
-				Headers::setLocation(Values::$assets['link'] . "account/licenses?i=$slug");
+				Callback::redirect(System::links('website') . "account/licenses?i=$slug");
 			} else {
-				Headers::setHttpCode(500);
-				echo json_encode([ 'return' => 'error-db-create-license' ]);
+				Callback::json(500, [
+					'return' => 'error-db-create-license'
+				]);
 			}
 		}
 
 		public function details() {
-			Headers::setContentType('application/json');
-
 			foreach ($this->db->query("SELECT slug, serial_number, frequency, added_in FROM ws_licenses WHERE slug = ? LIMIT 1" , [ 
 				Clean::slug($_GET['slug'])
 			]) as $data) {
 				$data['serial_number']	=	$this->serial->decode($data['serial_number']);
-				
-				Headers::setHttpCode(200);
-				echo json_encode($data);
+				Callback::json(200, $data);
 			}
 		}
 
@@ -116,21 +92,19 @@
 				$favorited	=	'true';
 			}
 
-			Headers::setContentType('application/json');
 			if ($this->db->query("UPDATE ws_licenses SET favorited = ? WHERE slug = ? AND username = ?", [
 				$favorited,
 				$data['slug'],
 				$data['username'],
 			])) {
-				Headers::setHttpCode(200);
-
-				echo json_encode([ 
+				Callback::json(200, [ 
 					'return'	=>	'success',
 					'favorited'	=>	$favorited
 				]);
 			} else {
-				Headers::setHttpCode(500);
-				echo json_encode([ 'return' => 'error-favorite-license' ]);
+				Callback::json(500, [
+					'return' => 'error-favorite-license'
+				]);
 			}
 		}
 
@@ -149,8 +123,9 @@
 					'username'		=>	$this->get_data('username'),
 				]);
 			} else {
-				Headers::setHttpCode(500);
-				echo json_encode([ 'return' => 'error-serial' ]);
+				Callback::json(500, [
+					'return' => 'error-serial'
+				]);
 			}
 		}
 
@@ -160,6 +135,24 @@
 			$this->linked	=	new Linked;
 			$this->devices	=	new Devices;
 			$this->clients	=	new Clients;
+		}
+
+		public function get_data($return, $slug = null) {
+			if ($slug == null) {
+				foreach ($this->db->query("SELECT " . $this->cols . " FROM ws_licenses WHERE serial_number = ?" , [ 
+					$this->serial->encode(
+						Clean::default($_POST['serial'])
+					)
+				]) as $data) {
+					return $data[$return];
+				}
+			} else {
+				foreach ($this->db->query("SELECT " . $this->cols . " FROM ws_licenses WHERE slug = ?" , [ 
+					Clean::slug($slug)
+				]) as $data) {
+					return $data[$return];
+				}
+			}
 		}
 
 	}

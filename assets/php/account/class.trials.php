@@ -11,8 +11,6 @@
 		}
 
 		public function get() {
-			Headers::setContentType('application/json');
-
 			foreach ($this->db->query("SELECT slug, notify, expires_in, added_in, ws_products.name FROM ws_products, ws_trials WHERE slug = ? AND username = ? LIMIT 1" , [ 
 				Clean::slug($_GET['slug']), 
 				$this->clients->get_id() 
@@ -20,8 +18,7 @@
 				$data['product']		=	$data['name'];
 				unset($data['name']);
 
-				Headers::setHttpCode(200);
-				echo json_encode($data);
+				Callback::json(200, $data);
 			}
 		}
 
@@ -46,9 +43,7 @@
 				];
 			}
 
-			Headers::setHttpCode(200);
-			Headers::setContentType('application/json');
-			echo json_encode([
+			Callback::json(200, [
 				'list'	=>	$list,
 				'total'	=>	$this->db->query("SELECT count(*) FROM ws_trials WHERE username = ? $prod_id", [
 					$this->clients->get_id()

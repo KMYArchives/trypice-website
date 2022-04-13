@@ -9,11 +9,11 @@
 		'utils/',
 		'login/',
 		'public/',
-		'addons/',
 		'system/',
 		'account/',
 		'security/',
 		'payments/',
+		'public/products/',
 	] as $p) {
 		foreach (scandir(__DIR__ . '/' . $p) as $file) {
 			if (!in_array(

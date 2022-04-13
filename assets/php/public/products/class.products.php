@@ -9,9 +9,7 @@
 				Clean::slug($_GET['slug']) 
 			]) as $data);
 
-			Headers::setHttpCode(200);
-			Headers::setContentType('application/json');
-			echo json_encode([
+			Callback::json(200, [
 				'id'				=>	$data['id'],
 				'name'				=>	$data['name'],
 				'slogan'			=>	$data['slogan'],
@@ -42,9 +40,7 @@
 				];
 			}
 
-			Headers::setHttpCode(200);
-			Headers::setContentType('application/json');
-			echo json_encode([
+			Callback::json(200, [
 				'list'	=>	$list,
 				'total'	=>	$this->db->query("SELECT COUNT(*) FROM ws_products WHERE status = 1")[0]['COUNT(*)'],
 			]);
@@ -68,9 +64,7 @@
 				];
 			}
 
-			Headers::setHttpCode(200);
-			Headers::setContentType('application/json');
-			echo json_encode([
+			Callback::json(200, [
 				'list'	=>	$list,
 				'total'	=>	$this->db->query("SELECT COUNT(*) FROM ws_products WHERE status = 'true'")[0]['COUNT(*)'],
 			]);

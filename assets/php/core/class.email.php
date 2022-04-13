@@ -6,23 +6,15 @@
 
 	class Email {
 
-		private static function email_subject($subject) {
-			switch ($subject) {
-				case 'reset':
-					return 'Reset password';
-					break;
-
-				case 'login':
-					return 'Confirm login';
-					break;
-
-				case 'confirm':
-					return 'Confirm your account';
-					break;
-			}
+		private static function email_subject(string $subject): string {
+			return match($subject) {
+				'reset'		=>	'Reset Password',
+				'confirm'	=>	'Confirm Email',
+				'login'		=>	'Confirm login',
+			};
 		}
 
-		private static function otp_code($type, $text, $code) {
+		private static function otp_code(string $type, string $text, string $code): string {
 			return "<tr>
 				<td class='container'>
 					<div class='content'>
@@ -45,7 +37,7 @@
 			</tr>";
 		}
 
-		public static function sender($params) {
+		public static function sender(array $params): bool {
 			// Instantiation and passing `true` enables exceptions
 			$mail = new PHPMailer;
 			Utils::load_env();
@@ -64,7 +56,7 @@
 				$mail->CharSet		=	$_ENV['SMTP_CHARSET']; // Fix characters problems
 
 				//Recipients
-				$mail->setFrom($_ENV['SMTP_EMAIL'], Values::$basic['name']);
+				$mail->setFrom($_ENV['SMTP_EMAIL'], System::global('name'));
 				$mail->addAddress($params['email'], $params['name']); // Add a recipient
 
 				// Content
@@ -80,7 +72,7 @@
 			}
 		}
 
-		public static function body($type, $subject, $body) {
+		public static function body(string $type, string $subject, string $body): string {
 			switch ($type) {
 				case 'otp':
 					return "<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
@@ -89,7 +81,7 @@
 							<meta name='viewport' content='width=device-width'>
 							<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
 							<style>" . 
-								File::read(Values::$assets['html_mail'], [ 
+								File::read(System::global('html_mail'), [ 
 									'remote' => true 
 								]) . 
 							"</style>
@@ -100,7 +92,7 @@
 								<tr>
 									<td class='header container border bg'>
 										<div class='center padding'>
-											<img src='" . Values::$images['logo'] . "' class='logo'>
+											<img src='" . System::images('logo_online') . "' class='logo'>
 										</div>
 									</td>
 								</tr>

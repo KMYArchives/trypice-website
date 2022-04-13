@@ -1,0 +1,14 @@
+.list{
+	float: left;
+	margin: 2vh;
+	padding: 2vh;
+	width: 117.2vh;
+	flex-direction: column;
+	@include drop-shadow-sm;
+	background: $firstColor;
+	border-radius: $padding2;
+	justify-content: flex-start;
+
+	@import 'list/list-header';
+	@import 'list/list-content';
+}

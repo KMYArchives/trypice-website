@@ -1,7 +1,7 @@
 const Copy = {
 
 	input (input) {
-		El.select('#' + input.id)
+		El.select(input)
 		Events.command('copy')	
 	},
 

@@ -1,0 +1,93 @@
+.info-box{
+	right: 0;
+	width: 25.75vh;
+	margin-top: 2vh;
+	margin-right: 4vh;
+	position: absolute;
+	text-align: center;
+	@include drop-shadow-sm;
+	border-radius: $padding2;
+	background: $secondColor;
+	border-bottom: $padding1 solid $blueColor;
+
+	input{
+		float: left;
+		border: none;
+		outline: none;
+		width: 19.1vh;
+		color: inherit;
+		padding-left: 1vh;
+		padding-right: 1vh;
+		line-height: 4.6vh;
+		background: transparent;
+		font-size: $smallFont + .1;
+		@include hover($firstColor);
+	}
+
+	button{
+		width: 21vh;
+		border: none;
+		color: inherit;
+		cursor: pointer;
+		font-weight: 600;
+		line-height: 4vh;
+		margin-bottom: 1vh;
+		letter-spacing: .1vh;
+		background: $secondColor;
+		border-color: $blueColor;
+		border-radius: $padding2;
+
+		@include icons{
+			width: 3vh;
+			float: left;
+			line-height: 4vh;
+		}
+
+		@include hover($firstColor) {
+			transition: .3s ease-in-out;
+			border-left: $padding1 solid $blueColor;
+		}
+	}
+
+	.label{
+		cursor: default;
+		text-align: left;
+		line-height: 4.5vh;
+		@include no-text-select;
+		font-size: $smallFont + .2;
+		padding-left: $padding_base;
+		padding-right: $padding_base;
+		border-bottom: $border_size solid $borderColor;
+		&:last-child{ border-bottom: 0; }
+	}
+
+	.header{
+		border-top-left-radius: $padding2;
+		border-top-right-radius: $padding2;
+		border-bottom: $border_size solid $borderColor;
+
+		.name{
+			outline: none;
+			color: inherit;
+			cursor: pointer;
+			line-height: 5vh;
+			text-decoration: none;
+
+			@include hover-custom{
+				text-decoration: underline;
+			}
+		}
+
+		img{ margin-top: $padding_base; }
+	}
+
+	@include icons{
+		float: left;
+		width: 4.5vh;
+		cursor: pointer;
+		line-height: 4.8vh;
+		text-align: center;
+		border-left: $border_size solid $borderColor;
+		@include hover($firstColor);
+	}
+}

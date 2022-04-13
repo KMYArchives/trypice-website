@@ -1,6 +1,7 @@
 // Modals variables
 var mask = '.mask',
 	modal = '.modal',
+	actived = 'actived',
 	confirm_modal = '#confirm-mdl'
 
 // Header variables
@@ -13,3 +14,11 @@ var account_box = '#account-box',
 var cover_box = '#cover-box',
 	cover_sidebar = '#cover-sidebar',
 	account_sidebar = '#account-sidebar'
+
+// Account page
+var page_account_content = '#page-account-content'
+
+// Filter box variables
+var filter_box = '.filter-options',
+	filter_license_btn = '.filter-license-btn',
+	filter_license_box = '.filter-license-box'

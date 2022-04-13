@@ -53,9 +53,11 @@
 		}
 
 		public static function plain(string $ip, string $method = 'method1'): string {
-			return File::read(self::api($ip, $method), [
-				'remote'	=>	true
-			]);
+			return File::read(
+				self::api($ip, $method), [
+					'remote'	=>	true
+				]
+			);
 		}
 
 		public static function location(string $ip, string $method = 'method1'): string { return self::plain($ip, $method); }

@@ -46,6 +46,12 @@
 		</div>
 	</div>
 
-	<?php Loader::js(); ?>
+	<?php
+	
+		Loader::js([
+			'https://js.stripe.com/v3'
+		]);
+		
+	?>
 </body>
 </html>

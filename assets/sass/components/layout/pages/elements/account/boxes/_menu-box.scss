@@ -1,0 +1,28 @@
+.menu-box{
+	width: 22vh;
+	display: none;
+	overflow: auto;
+	z-index: 999999;
+	max-height: 30vh;
+	margin-top: 5.5vh;
+	position: relative;
+	margin-left: $padding2;
+	@include no-text-select;
+	@include drop-shadow-sm;
+	background: $secondColor;
+	border-radius: $padding2;
+	padding-top: $padding_base;
+	padding-bottom: $padding_base;
+	border-left: $padding1 solid $blueColor;
+
+	.item{
+		cursor: pointer;
+		font-size: $smallFont + .3;
+		padding-left: $padding_base;
+		padding-right: $padding_base;
+		line-height: $padding_base * 3.5;
+		@include hover($firstColor) { transition: .3s ease-in-out; }
+	}
+
+	@include scrollbar;
+}

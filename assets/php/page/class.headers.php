@@ -4,12 +4,12 @@
 
 		public static function core(): void {
 			self::setXFrameOptions('deny');
-			self::setEtag(Values::$basic['etag']);
+			self::setEtag(System::global('etag'));
 			self::setXContentTypeOptions('nosniff');
 			self::setXXSSProtection('1; mode=block');
 			self::setCacheControl('private; max-age=86400');
 			self::setStrictTransportSecurity('max-age=86400');
-			self::setAccessControlAllowOrigin(Values::$assets['link']);
+			self::setAccessControlAllowOrigin(System::links('website'));
 		}
 
 		public static function get(string $name): string {

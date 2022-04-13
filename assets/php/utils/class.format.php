@@ -16,7 +16,7 @@
 			];
 		}
 
-		public static function float (float $value, int $decimals = 2): float {
+		public static function float(float $value, int $decimals = 2): float {
 			return number_format(
 				$value, $decimals, '.', ','
 			);

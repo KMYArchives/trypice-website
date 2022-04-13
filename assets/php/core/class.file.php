@@ -26,14 +26,6 @@
 			}
 		}
 
-		public static function extension(string $file): string {
-			return end(
-				explode(
-					'.', $file
-				)
-			);
-		}
-
 		public static function file_exists(string|array $file): bool {
 			if (array($file)) {
 				foreach ($file as $f) {
@@ -86,13 +78,6 @@
 			}
 		}
 
-		public static function bytes($input, $filesize = false) {
-			$input	=	Clean::numbers($input);
-			if ($filesize == true) { $input = filesize($input); }
-			
-			return Format::bytes($input);
-		}
-
 		public static function upload($input, $target, $options = []) {
 			if (in_array($_FILES[$from]['type'], $options['ext'])) {
 				if ($_FILES[$from]['size'] <= $options['max_size']) {
@@ -129,44 +114,5 @@
 				throw new \InvalidArgumentException('File not created');
 			}
 		}
-
-		public static function hashes($filename, $algos = [], $save_hashes = null) {
-			if (!is_string($filename)) { throw new \InvalidArgumentException('Second argument must be a string'); }
-			if (!file_exists($filename)) { throw new \InvalidArgumentException('Second argument, file not found'); }
-			
-			if ($algos != 'all') {
-				if (!is_array($algos)) { throw new \InvalidArgumentException('First argument must be an array'); }
-			} else {
-				$algos = hash_algos();
-			}
-		
-			$result = [];
-			$fp = fopen($filename, "r");
-
-			if ($fp) {
-				foreach ($algos as $algo) { $ctx[$algo] = hash_init($algo); }
-		
-				while (!feof($fp)) {
-					$buffer = fgets($fp, 65536);
-					foreach ($ctx as $key => $context) { hash_update($ctx[$key], $buffer); }
-				}
-		
-				foreach ($algos as $algo) { $result[$algo] = hash_final($ctx[$algo]); }
-				fclose($fp);
-
-				if ($save_hashes != null) { 
-					File::create($save_hashes . '.json', $result, [
-						'json_encode'	=>	true,
-						'flags'			=>	JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT
-					]);
-				}
-			} else {
-				throw new \InvalidArgumentException('Could not open file for reading');
-			} 
-
-			return $result;
-		}
-
-		public static function size(string $file): int { return filesize($file); }
 
 	}

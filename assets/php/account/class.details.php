@@ -7,9 +7,7 @@
 		public function stats() {
 			$client		=	$this->clients->get_id();
 			
-			Headers::setHttpCode(200);
-			Headers::setContentType('application/json');
-			echo json_encode([
+			Cllaback::json(200, [
 				'orders'		=>	$this->db->query("SELECT count(*) FROM ws_orders WHERE username = '$client'")[0]['count(*)'],
 				'linked'		=>	$this->db->query("SELECT count(*) FROM ws_linked WHERE username = '$client'")[0]['count(*)'],
 				'devices'		=>	$this->db->query("SELECT count(*) FROM ws_devices WHERE username = '$client'")[0]['count(*)'],
@@ -39,9 +37,7 @@
 				$data['username']	=	OpenSSL::decrypt($data['username']);
 			}
 
-			Headers::setHttpCode(200);
-			Headers::setContentType('application/json');
-			echo json_encode($data);
+			Callback::json(200, $data);
 		}
 
 		public function __construct() {

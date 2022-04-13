@@ -107,10 +107,12 @@
 				$this->configs()['paths']['image'] . $input
 			);
 
-			if (is_dir($this->configs()['paths']['image'])) {
+			if (is_dir($this->configs()['paths']['image']) && file_exists($this->configs()['paths']['image'] . $input)) {
 				header("Content-Type: image/$ext");
 				header("Content-Length: " . $size);
 				readfile($this->configs()['paths']['image'] . $input);
+			} else {
+				header('Location: ' . System::links('website'));
 			}
 		}
 

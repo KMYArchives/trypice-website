@@ -33,8 +33,6 @@
 		}
 
 		public function get() {
-			Headers::setContentType('application/json');
-
 			foreach ($this->db->query("SELECT ip, uuid, hostname, os, arch, cpu, model, favorited, added_in FROM ws_devices WHERE username = ? AND slug = ?", [
 				$this->clients->get_id(), 
 				Clean::slug($_GET['slug']),
@@ -43,7 +41,7 @@
 				$data['ip']			=	OpenSSL::decrypt($data['ip']);
 				$data['uuid']		=	OpenSSL::decrypt($data['uuid']);
 				
-				echo json_encode($data);
+				Callback::json(200, $data);
 			}
 		}
 		
@@ -76,9 +74,7 @@
 				];
 			}
 			
-			Headers::setHttpCode(200);
-			Headers::setContentType('application/json');
-			echo json_encode([
+			Callback::json(200, [
 				'list'	=>	$list,
 				'total'	=>	$this->db->query("SELECT count(*) FROM ws_devices WHERE username = ? $term $favorited", [
 					$this->clients->get_id()
@@ -100,14 +96,16 @@
 			])) {
 				$this->linked->unlink($data['id']);
 			} else {
-				Headers::setHttpCode(500);
-				echo json_encode([ 'return' => 'error-db' ]);
+				Callback::json(500, [
+					'return' => 'error-db'
+				]);
 			}
 		}
 
 		public function favorited() {
 			foreach ($this->db->query("SELECT slug, favorited, username FROM ws_devices WHERE slug = ? AND username = ? LIMIT 1" , [ 
-				Clean::slug($_POST['slug']), $this->clients->get_id() 
+				Clean::slug($_POST['slug']),
+				$this->clients->get_id() 
 			]) as $data);
 
 			if ($data['favorited'] == 'true') {
@@ -116,27 +114,23 @@
 				$favorited	=	'true';
 			}
 
-			Headers::setContentType('application/json');
 			if ($this->db->query("UPDATE ws_devices SET favorited = ? WHERE slug = ? AND username = ?", [
 				$favorited,
 				$data['slug'],
 				$data['username'],
 			])) {
-				Headers::setHttpCode(200);
-
-				echo json_encode([ 
+				Callback::json(200, [ 
 					'return'	=>	'success',
 					'favorited'	=>	$favorited
 				]);
 			} else {
-				Headers::setHttpCode(500);
-				echo json_encode([ 'return' => 'error-favorited-device' ]);
+				Callback::json(500, [
+					'return' => 'error-favorited-device'
+				]);
 			}
 		}
 
 		public function edit($data) {
-			Headers::setContentType('application/json');
-			
 			if ($this->db->query("UPDATE ws_devices SET os = ?, cpu = ?, arch = ?, hostname = ? WHERE uuid = ? AND username = ?", [
 				Clean::default($_POST['os']),
 				Clean::default($_POST['cpu']),
@@ -146,16 +140,15 @@
 				$data['uuid'],
 				$data['username']
 			])) {
-				Headers::setHttpCode(200);
-
-				echo json_encode([ 
+				Callback::json(200, [ 
 					'return'	=>	'success',
 					'slug'		=>	$data['slug'],
 					'prod_id'	=>	$this->get_prod_id($data['slug']),
 				]);
 			} else {
-				Headers::setHttpCode(500);
-				echo json_encode([ 'return' => 'error-db-edit-device' ]);
+				Callback::json(500, [
+					'return' => 'error-db-edit-device'
+				]);
 			}
 		}
 
@@ -166,8 +159,6 @@
 		}
 
 		public function create($data) {
-			Headers::setContentType('application/json');
-
 			$slug	=	Random::slug([ 36, 48 ]);
 			$uuid	=	OpenSSL::encrypt(
 				Clean::default($_POST['uuid'])
@@ -193,8 +184,9 @@
 						'slug'		=>	$data['slug-license'],
 					]);
 				} else {
-					Headers::setHttpCode(500);
-					echo json_encode([ 'return' => 'error-db-devices' ]);
+					Callback::json(500, [
+						'return' => 'error-db-devices'
+					]);
 				}
 			} else {
 				$this->edit([

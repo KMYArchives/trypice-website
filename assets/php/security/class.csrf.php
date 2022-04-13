@@ -20,9 +20,12 @@
 
 		public function validate() {
 			if (Clean::string($_POST['csrf'], 'Az09') && Cookies::has('csrf') == true) {
-				if (Cookies::get('csrf') != Clean::string($_POST['csrf'], 'Az09')) {
+				if (Cookies::get('csrf') != Clean::string(
+					$_POST['csrf'], 'Az09'
+				)) {
 					Cookies::remove('csrf');
 					$this->generate();
+					
 					return false;
 				} else {
 					return true;

@@ -1,0 +1,74 @@
+.list-content{
+	width: 90vh;
+	font-size: $smallFont + .4;
+
+	.item{
+		height: 6.5vh;
+		color: inherit;
+		display: block;
+		cursor: pointer;
+		margin-bottom: 1vh;
+		line-height: 6.5vh;
+		text-decoration: none;
+		box-sizing: border-box;
+		border-radius: $padding2;
+		border-left-color: transparent;
+
+		img{
+			width: 4vh;
+			float: left;
+			margin: auto;
+			margin-left: 1vh;
+			margin-top: 1.25vh;
+		}
+
+		.ip,
+		.name, 
+		.date, 
+		.system{
+			float: left;
+			text-align: center;
+		}
+
+		.ip{ width: 15.5vh; }
+
+		.name{ width: 25.5vh; }
+
+		.date{ width: 17.5vh; }
+
+		.system{ width: 24.5vh; }
+
+		@include hover($secondColor) {
+			@include drop-shadow-sm;
+			transition: .3s ease-in-out;
+			border-left: $padding1 solid $blueColor;
+		}
+	}
+
+	.section-header{
+		height: 5vh;
+		margin-top: 2vh;
+		line-height: 5vh;
+		margin-bottom: 1.5vh;
+		@include no-text-select;
+		border-radius: $padding2;
+		padding-left: $padding_base;
+
+		.total{
+			float: right;
+			margin-right: 1.5vh;
+		}
+
+		@include icons{
+			width: 5vh;
+			float: right;
+			cursor: pointer;
+			line-height: 5vh;
+			text-align: center;
+			border-radius: $padding2;
+			@include hover($secondColor);
+		}
+
+		.label{ float: left; }
+	}
+}

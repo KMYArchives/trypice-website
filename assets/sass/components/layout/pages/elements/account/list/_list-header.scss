@@ -1,0 +1,43 @@
+.list-header{
+	height: 5vh;
+	border-radius: $padding2;
+
+	.icon{
+		width: 5vh;
+		float: left;
+		cursor: pointer;
+		line-height: 5vh;
+		text-align: center;
+		position: relative;
+		border-radius: $padding2;
+		@include hover($secondColor);
+	}
+
+	input{
+		float: right;
+		border: none;
+		outline: none;
+		color: inherit;
+		padding-left: 2vh;
+		padding-right: 2vh;
+		line-height: 5.1vh;
+		background: transparent;
+		border-radius: $padding2;
+		border-color: $blueColor;
+		font-size: $smallFont + .3;
+
+		@include placeholder;
+		@include hover($secondColor) {
+			@include drop-shadow-sm;
+			transition: .3s ease-in-out;
+			border-left: $padding1 solid $blueColor;
+		}
+	}
+
+	.label{
+		float: left;
+		line-height: 5vh;
+		@include no-text-select;
+		padding-left: $padding_base;
+	}
+}

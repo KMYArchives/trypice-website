@@ -3,37 +3,26 @@
 	class Core {
 
 		public function basic() {
-			Headers::setHttpCode(200);
-			Headers::setContentType('application/json');
-
-			echo json_encode([
-				'name'				=>	Values::$basic['name'],
-				'etag'				=>	Values::$basic['etag'],
-				'company'			=>	Values::$basic['author'],
-				'charset'			=>	Values::$basic['charset'],
-				'language'			=>	Values::$basic['def_lang'],
-				'links'				=>	[
-					'base'			=>	Values::$assets['link'],
-					'company'		=>	Values::$assets['core'],
-					'api'			=>	Values::$assets['link'] . 'apis/',
+			Callback::json(200, [
+				'name'			=>	System::global('name'),
+				'etag'			=>	System::global('etag'),
+				'company'		=>	System::global('name'),
+				'slogan'		=>	System::global('slogan'),
+				'charset'		=>	System::global('charset'),
+				'language'		=>	System::global('language'),
+				'social_media'	=>	System::global('social_media_user'),
+				'links'			=>	[
+					'website'	=>	System::links('website'),
+					'api'		=>	System::links('api_link'),
+					'cloud'		=>	System::links('workspace'),
 				],
-				'images'			=>	[
-					'service'		=>	[
-						'logo'		=>	Values::$images['logo'],
-						'favicon'	=>	Values::$images['favicon'],
-					],
-					'company'		=>	[
-						'logo'		=>	Values::$images['logo_company'],
-						'favicon'	=>	Values::$images['favicon_company'],
-					],
-				]
 			]);
 		}
 
-		public function json_read() {
-			echo Files::read(Values::$assets['files'] . $_GET['file'] . '.json', [
-				'json_encode'	=>	true,
-			]);
+		public static function layout(string $view) {
+			if (file_exists('layout/' . $view . '.html')) {
+				include 'layout/' . $view . '.html';
+			}
 		}
 		
 	}

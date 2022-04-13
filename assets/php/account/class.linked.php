@@ -47,9 +47,7 @@
 				];
 			}
 			
-			Headers::setHttpCode(200);
-			Headers::setContentType('application/json');
-			echo json_encode([
+			Callback::json(200, [
 				'list'	=>	$list,
 				'total'	=>	$this->db->query("SELECT count(*) FROM ws_devices, ws_linked WHERE ws_linked.trials = '$trials' AND $term ws_linked.license_id = ? AND ws_linked.username = ?", [
 					$license, 
@@ -59,17 +57,17 @@
 		}
 
 		public function unlink() {
-			Headers::setContentType('application/json');
-			
 			if ($this->db->query("DELETE FROM ws_linked WHERE slug_item = ? AND username = ?" , [
 				Clean::slug($_POST['slug']), 
 				$this->clients->get_id() 
 			])) {
-				Headers::setHttpCode(200);
-				echo json_encode([ 'return' => 'success' ]);
+				Callback::json(200, [
+					'return' => 'success'
+				]);
 			} else {
-				Headers::setHttpCode(500);
-				echo json_encode([ 'return' => 'error-db-unlink' ]);
+				Callback::json(500, [
+					'return' => 'error-db-unlink'
+				]);
 			}
 		}
 
@@ -78,7 +76,6 @@
 				'license'	=>	$data['license'],
 				'username'	=>	$data['username'],
 			])) {
-				Headers::setContentType('application/json');
 				$slug	=	Random::slug([ 36, 48 ]);
 
 				if ($this->db->query("INSERT INTO ws_linked(slug_item, trials, device_id, license_id, username) VALUES(?, ?, ?, ?, ?)", [
@@ -88,19 +85,19 @@
 					$data['license'],
 					$data['username']
 				])) {
-					Headers::setHttpCode(200);
-
-					echo json_encode([ 
+					Callback::json(200, [ 
 						'return' 		=> 'success',
 						'slug-license'	=>	$data['slug'],
 					]);
 				} else {
-					Headers::setHttpCode(500);
-					echo json_encode([ 'return' => 'error-db-linked' ]);
+					Callback::json(500, [
+						'return' => 'error-db-linked'
+					]);
 				}
 			} else {
-				Headers::setHttpCode(500);
-				echo json_encode([ 'return' => 'error-max-devices' ]);
+				Callback::json(500, [
+					'return' => 'error-max-devices'
+				]);
 			}
 		}
 

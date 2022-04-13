@@ -10,9 +10,7 @@
 				Clean::string($_GET['platform'], 'az')
 			]) as $data);
 			
-			Headers::setHttpCode(200);
-			Headers::setContentType('application/json');
-			echo json_encode([
+			Callback::json(200, [
 				'icon'				=>	$data['icon'],
 				'arch'				=>	$data['arch'],
 				'file'				=>	$data['file'],
@@ -23,8 +21,8 @@
 				'added_in'			=>	$data['added_in'],
 				'file_size'			=>	$data['file_size'],
 				'min_os_version'	=>	$data['min_os_version'],
-				'download'			=>	Values::$assets['link'] . 'dl/' . $data['slug'],
-				'hashes'			=>	File::hashes(Values::$assets['setups'] . $data['setup'], [
+				'download'			=>	System::links('website') . 'dl/' . $data['slug'],
+				'hashes'			=>	FileProperties::hashes(System::dir('setups') . $data['setup'], [
 					'md5', 'sha1', 'sha256', 'sha384', 'sha512', 'crc32', 'adler32', 'whirlpool'
 				]),
 			]);
@@ -47,9 +45,7 @@
 				];
 			}
 			
-			Headers::setHttpCode(200);
-			Headers::setContentType('application/json');
-			echo json_encode([
+			Callback::json(200, [
 				'list'	=>	$list,
 				'total'	=>	count($list),
 			]);
@@ -61,30 +57,25 @@
 			]);
 
 			foreach ($query as $data);
-			Headers::setContentType('application/json');
 			
 			if ($query) {
-				if (File::file_exists(Values::$assets['setups'] . $data['setup'])) {
+				if (File::file_exists(System::dir('setups') . $data['setup'])) {
+					Headers::setContentType('application/json');
 					Headers::setHttpCode(200);
 
 					File::download([
 						'name'	=>	$data['file'],
 						'file'	=>	$data['setup'],
-						'path'	=>	Values::$assets['setups'],
+						'path'	=>	System::dir('setups'),
 					]);
 				} else {
-					Headers::setHttpCode(404);
-					Headers::setContentType('application/json');
-
-					echo json_encode([ 
+					Callback::json(404, [
 						'return'	=>	'error',
 						'message'	=>	'Unknown error' 
 					]);
 				}
 			} else {
-				Headers::setHttpCode(403);
-				Headers::setContentType('application/json');
-				echo json_encode([ 'error' => 'Argument invalid...' ]);
+				Callback::json(403, [ 'error' => 'Argument invalid...' ]);
 			}
 		}
 

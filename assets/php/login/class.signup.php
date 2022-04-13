@@ -18,7 +18,9 @@
 
 		private function set_user_key() {
 			return Hash::user_key(
-				Utils::random(128, true, true, true) . $_POST['email'] . $_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']
+				Random::string(
+					128, true, true, true
+				) . $_POST['email'] . $_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']
 			);
 		}
 		
@@ -28,7 +30,7 @@
 		}
 		
 		private function random_username() {
-			return Utils::random(
+			return Random::string(
 				16, true, true, true
 			);
 		}

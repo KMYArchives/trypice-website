@@ -40,7 +40,7 @@
 
 		public static function sqlInjection(string $input): string {
 			return preg_replace(
-				"/(into|drop|from|update|select|insert|truncate|delete|truncate|where|alter|alter table|alter colunm|drop database|drop table|show tables|`|=|!|;|.|#|\*|--|\\\\)/", "", strtolower($input)
+				"/(into|drop|from|update|select|insert|truncate|delete|truncate|where|alter|alter table|alter colunm|drop database|drop table|show tables|`|=|!|;|.|#|\*|--|\\\\)/", '', strtolower($input)
 			);
 		}
 

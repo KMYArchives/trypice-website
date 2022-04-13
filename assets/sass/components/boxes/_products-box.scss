@@ -6,11 +6,33 @@
 	z-index: 99999999;
 	text-align: center;
 	@include drop-shadow-sm;
-	background: $secondColor;
+	background: $firstColor;
 	margin-top: $header_size;
 	margin-right: $wdith_user_box;
 	border-bottom-left-radius: $padding2;
 	border-bottom-right-radius: $padding2;
+
+	input{
+		width: 57vh;
+		border: none;
+		color: $fontColor;
+		padding-left: 1vh;
+		padding-right: 1vh;
+		line-height: 4.25vh;
+		display: inline-block;
+		margin: $padding_base;
+		background: transparent;
+		border-radius: $padding2;
+		margin-bottom: $padding3 / 2;
+		border-left: $padding1 solid transparent;
+
+		@include placeholder(.7, bold);
+		@include hover($fontColor, $firstColor) {
+			@include drop-shadow-sm;
+			border-color: $blueColor;
+			transition: border-color .3s ease-in-out;
+		}
+	}
 
 	.list{
 		display: flex;
@@ -85,7 +107,7 @@
 				padding-right: $padding_base + $padding3;
 			}
 	
-			@include hover($firstColor) {
+			@include hover($secondColor) {
 				@include drop-shadow-sm;
 				transition: .3s ease-in-out;
 				border-left: $padding1 solid $blueColor;
@@ -93,27 +115,5 @@
 		}
 
 		@include scrollbar;
-	}
-
-	input{
-		width: 57vh;
-		border: none;
-		color: $fontColor;
-		padding-left: 1vh;
-		padding-right: 1vh;
-		line-height: 4.25vh;
-		display: inline-block;
-		margin: $padding_base;
-		background: transparent;
-		border-radius: $padding2;
-		margin-bottom: $padding3 / 2;
-		border-left: $padding1 solid transparent;
-
-		@include placeholder(.7, bold);
-		@include hover($fontColor, $firstColor) {
-			@include drop-shadow-sm;
-			border-color: $blueColor;
-			transition: border-color .3s ease-in-out;
-		}
 	}
 }

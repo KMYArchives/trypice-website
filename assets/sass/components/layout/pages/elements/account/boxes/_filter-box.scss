@@ -1,0 +1,63 @@
+.filter-box{
+	float: right;
+	z-index: 999999;
+	line-height: 5vh;
+	position: relative;
+	margin-left: $padding2;
+	@include no-text-select;
+
+	.actived{
+		@include drop-shadow-sm;
+		background: $secondColor;
+		border-left: $padding1 solid $blueColor;
+	}
+
+	.filter-label{
+		width: 14vh;
+		cursor: pointer;
+		text-align: center;
+		position: relative;
+		border-color: $blueColor;
+		border-radius: $padding2;
+		font-size: $smallFont + .4;
+		padding-left: $padding_base;
+		padding-right: $padding_base;
+
+		@include hover($secondColor) {
+			@include drop-shadow-sm;
+			transition: .3s ease-in-out;
+			border-left: $padding1 solid $blueColor;
+		}
+	}
+
+	.filter-options{
+		display: none;
+		overflow: auto;
+		max-height: 20vh;
+		margin-top: .75vh;
+		@include drop-shadow-sm;
+		background: $secondColor;
+		border-radius: $padding2;
+		padding-top: $padding_base;
+		font-size: $smallFont + .4;
+		padding-bottom: $padding_base;
+		border-left: $padding1 solid $blueColor;
+
+		.filter-option{
+			cursor: pointer;
+			font-size: $smallFont + .3;
+			padding-left: $padding_base;
+			padding-right: $padding_base;
+			line-height: $padding_base * 3.5;
+			@include hover($firstColor) { transition: .3s ease-in-out; }
+		}
+
+		.option-actived{
+			border: 0 !important;
+			background: $firstColor;
+			@include drop-shadow-none;
+		}
+
+		@include scrollbar;
+	}
+}

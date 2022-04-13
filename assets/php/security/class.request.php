@@ -3,6 +3,8 @@
 	class Request {
 
 		private static function _error(array $debug) {
+			Headers::setHttpCode(403);
+
 			echo match ($debug['type']) {
 				'cookie'	=>	"Missing cookie: " . $debug['param'] . " (mode: " . strtoupper($debug['mode']) . ")\n",
 				'empty'		=>	"Empty parameter: " . $debug['param'] . " (mode: " . strtoupper($debug['mode']) . ")\n",
@@ -26,8 +28,6 @@
 				self::protect([$value]);
 
 				if (!isset($_GET[$value])) {
-					Headers::setHttpCode(403);
-
 					self::_error([
 						'mode'	=>	'get',
 						'param'	=>	$value,
@@ -36,8 +36,6 @@
 
 					die;
 				} else if (empty($_GET[$value])) {
-					Headers::setHttpCode(403);
-					
 					self::_error([
 						'mode'	=>	'get',
 						'param'	=>	$value,
@@ -69,7 +67,7 @@
 			}
 		}
 
-		public static function validate_request (string $cookie, array $params, string $mode): bool {
+		public static function validate_request (string $cookie, string $params, string $mode): bool {
 			if (Cookies::has($cookie)) {
 				if ($mode == 'get') {
 					self::get($params);

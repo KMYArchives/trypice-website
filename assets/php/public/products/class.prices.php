@@ -9,9 +9,7 @@
 				Clean::slug($_GET['slug']) 
 			]) as $data);
 			
-			Headers::setHttpCode(200);
-			Headers::setContentType('application/json');
-			echo json_encode([
+			Callback::json(200, [
 				'product'		=>	$data['name'],
 				'price'			=>	$data['price'],
 				'prod_id'		=>	$data['prod_id'],
@@ -40,9 +38,7 @@
 				];
 			}
 			
-			Headers::setHttpCode(200);
-			Headers::setContentType('application/json');
-			echo json_encode([
+			Callback::json(200, [
 				'list'	=>	$list,
 				'total'	=>	count($list),
 			]);

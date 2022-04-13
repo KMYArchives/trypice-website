@@ -1,0 +1,34 @@
+.card-area{
+	height: 20vh;
+	margin-top: 2vh;
+	margin-bottom: 2vh;
+	justify-content: center;
+
+	.card{
+		height: 100%;
+		width: 24.2%;
+		cursor: pointer;
+		text-align: center;
+		display: inline-block;
+		background: $firstColor;
+		border-radius: $padding2;
+		border-color: $blueColor;
+
+		.body{
+			font-size: 1.75vh;
+			line-height: 15vh;
+		}
+
+		.title{
+			line-height: 5vh;
+			border-top-left-radius: $padding2;
+			border-top-right-radius: $padding2;
+		}
+	
+		@include hover($secondColor) {
+			@include drop-shadow-sm;
+			transition: .3s ease-in-out;
+			border-bottom: $padding1 solid $blueColor;
+		}
+	}
+}

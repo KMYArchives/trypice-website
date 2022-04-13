@@ -16,8 +16,8 @@
 
 		public function generate() {
 			if (Validation::email('email', 'post')) {
-				$slug		=	Utils::random(36, true, true, true);
-				$otp		=	Utils::random(12, true, true, true);
+				$slug		=	Random::slug([ 36, 48 ]);
+				$otp		=	Random::string(12, true, true, true);
 				$username	=	$this->clients->get_username($_POST['email']);
 				
 				if ($username != false) {
@@ -35,27 +35,21 @@
 							'subject'	=>	$this->type($_POST['type']),
 							'email'		=>	OpenSSL::decrypt($data['email']),
 						])) {
-							Headers::setHttpCode(200);
-
-							echo json_encode([
+							Callback::json(200, [
 								'slug'		=>	$slug,
 								'return'	=>	'success'
 							]);
 						} else {
-							Headers::setHttpCode(500);
-							echo json_encode([ 'return' => 'error-email-sender' ]);
+							Callback::json(500, [ 'return' => 'error-email-sender' ]);
 						}
 					} else {
-						Headers::setHttpCode(500);
-						echo json_encode([ 'return' => 'error-insert-db' ]);
+						Callback::json(500, [ 'return' => 'error-insert-db' ]);
 					}
 				} else {
-					Headers::setHttpCode(500);
-					echo json_encode([ 'return' => 'error-username' ]);
+					Callback::json(500, [ 'return' => 'error-username' ]);
 				}
 			} else {
-				Headers::setHttpCode(500);
-				echo json_encode([ 'return' => 'error-email-invalid' ]);
+				Callback::json(500, [ 'return' => 'error-email-invalid' ]);
 			}
 		}
 
@@ -65,18 +59,14 @@
 		}
 		
 		public function check_exists() {
-			Headers::setContentType('application/json');
-
 			if (count(
 				$this->db->query("SELECT slug FROM ws_otp_code WHERE slug = ?", [
 					Clean::slug($_GET['slug'])
 				])
 			) > 0) {
-				Headers::setHttpCode(200);
-				echo json_encode([ 'return' => 'success' ]);
+				Callback::json(200, [ 'return' => 'success' ]);
 			} else {
-				Headers::setHttpCode(500);
-				echo json_encode([ 'return' => 'error-otp-invalid' ]);
+				Callback::json(500, [ 'return' => 'error-otp-invalid' ]);
 			}
 		}
 

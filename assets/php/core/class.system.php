@@ -19,6 +19,7 @@
 				'pages'		=>	'pages/',
 				'files'		=>	'files/',
 				'setups'	=>	'setups/',
+				'json'		=>	'assets/json/',
 			};
 		}
 
@@ -35,6 +36,7 @@
 			return match($link) {
 				'website'	=>	'https://localhost/website/',
 				'workspace'	=>	'https://localhost/workspace/',
+				'api_link'	=>	self::links('website') . 'apis/',
 				'gravatar'	=>	'https://www.gravatar.com/avatar/%s?s=%s',
 			};
 		}
@@ -45,9 +47,10 @@
 				'language'			=>	'en-US',
 				'charset'			=>	'UTF-8',
 				'render'			=>	'yuki/',
-				'name'				=>	'Colisoft',
-				'social_media_user'	=>	'Colisoft',
+				'name'				=>	'Trypice',
+				'social_media_user'	=>	'Trypice',
 				'slogan'			=>	'We build tools for all',
+				'html_mail'			=>	'https://pastebin.com/raw/ZWK6P5iA',
 				'etag'				=>	'91242c4a4111df4cd6be844dfa3b89b5',
 
 				'cookie_user'		=>	'E7MvX8E68Z6RQ8ob0xeRMQgsOiZoGD0k',
@@ -60,6 +63,7 @@
 		public static function images(string $image): string {
 			return match($image) {
 				'logo'				=>	self::yuki('image') . 'logo.png',
+				'logo_online'		=>	'https://i.imgur.com/CICxg8O.png',
 				'default-avatar'	=>	self::yuki('image') . 'avatar.jpg',
 				'favicon'			=>	self::yuki('image') . 'favicon.png',
 				'user-cover'		=>	self::yuki('image') . 'user-cover.jpg',

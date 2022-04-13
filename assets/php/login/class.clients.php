@@ -22,9 +22,9 @@
 			}
 		}
 		
-		public function get_id($user = null) {
+		public function get_id(string $user = null) {
 			$user	=	$this->get_user();
-			if ($user) { $user = Clean::slug($user, 'Az09'); }
+			if ($user) { $user = Clean::slug($user); }
 
 			foreach ($this->db->query("SELECT id FROM ws_clients WHERE user_id = ?", [
 				$user
@@ -33,7 +33,7 @@
 			return $data['id'];
 		}
 		
-		public function get_username($email) {
+		public function get_username(string $email) {
 			$query	=	$this->db->query("SELECT id FROM ws_clients WHERE email = ?", [
 				OpenSSL::encrypt(
 					Clean::default($email)
@@ -41,6 +41,7 @@
 			]);
 
 			foreach ($query as $data);
+			
 			if (count($query) > 0) {
 				return $data['id'];
 			} else {

@@ -20,14 +20,14 @@ const Header = {
 	},
 
 	toggle_account () {
-		Classes.toggle(account_avatar, 'actived')
+		Classes.toggle(account_avatar, actived)
 		El.hide([ products_box ])
 		
 		Classes.remove([
 			products_btn,
-		], 'actived')
+		], actived)
 
-		if (Classes.has(account_avatar, 'actived')) {
+		if (Classes.has(account_avatar, actived)) {
 			El.show(account_box)
 		} else {
 			El.hide(account_box)
@@ -35,14 +35,14 @@ const Header = {
 	},
 
 	toggle_products () {
-		Classes.toggle(products_btn, 'actived')
+		Classes.toggle(products_btn, actived)
 		El.hide([ account_box ])
 
 		Classes.remove([
 			account_avatar,
-		], 'actived')
+		], actived)
 
-		if (Classes.has(products_btn, 'actived')) {
+		if (Classes.has(products_btn, actived)) {
 			El.show(products_box)
 		} else {
 			El.hide(products_box)

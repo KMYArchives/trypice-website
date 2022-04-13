@@ -2,7 +2,7 @@
 
 	class Cookies {
 
-		public static function _name(string $name): mixed {
+		public static function _name(string $name): string {
 			if (System::global('cookie_' . $name)) {
 				return System::global('cookie_' . $name);
 			} else {
@@ -38,7 +38,7 @@
 
 		public static function delete(string $name): void {
 			self::create([
-				'value'		=>	'',
+				'value'		=>	null,
 				'expire'	=>	time() - 3600,
 				'name'		=>	self::_name($name),
 			]);
