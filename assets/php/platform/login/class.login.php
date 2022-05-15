@@ -6,36 +6,28 @@
 
 		public function login() {
 			if (Validation::email('email', 'post')) {
-				$email	=	OpenSSL::encrypt(
-					Clean::default($_POST['email'])
-				);
-
+				$email	=	OpenSSL::encrypt($_POST['email']);
 				$query	=	$this->db->query("SELECT id, user_id, pass FROM ws_clients WHERE email = ?", [ $email ]);			
 					
 				if (count($query) > 0) {
-					foreach ($query as $data) {
-						$data['id'];
-						$data['pass'];
-						$data['user_id'];
-					}
+					foreach ($query as $data);
 	
 					if (Hash::pass($_POST['pass'], $data['pass'], true)) {
-						if (Clean::default($_POST['client-id'])) {
+						if (Clean::slug($_POST['origin']) == 'app') {
 							Callback::json(200, [
 								'return'	=>	'success',
 								'id'		=>	$data['user_id'],
 								'details'	=>	$this->details->login_details($data['user_id'])
 							]);
-						} else {
+						} else if (Clean::slug($_POST['origin']) == 'web') {
 							$this->set_user($data['user_id']);
 							Callback::json(200, [ 'return' => 'success' ]);
 						}
 					} else {
-						Headers::setHttpCode(403);
-						echo json_encode([ 'return' => 'error-login-auth' ]);
+						Callback::json(403, [ 'return' => 'error-login-auth-pass' ]);
 					}
 				} else {
-					Callback::json(403, [ 'return' => 'error-login-auth' ]);
+					Callback::json(403, [ 'return' => 'error-login-auth-email' ]);
 				}
 			} else {
 				Callback::json(403, [ 'return' => 'error-email' ]);

@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .products-box{
 	top: 0;
 	right: 0;
@@ -23,7 +25,7 @@
 		margin: $padding_base;
 		background: transparent;
 		border-radius: $padding2;
-		margin-bottom: $padding3 / 2;
+		margin-bottom: math.div($padding3, 2);
 		border-left: $padding1 solid transparent;
 
 		@include placeholder(.7, bold);
@@ -91,11 +93,11 @@
 	
 			.name{
 				display: block;
-				margin-top: -$padding2 / 2;
 				padding-left: $padding_base;
 				padding-right: $padding_base;
 				line-height: $padding_base * 2;
 				margin-left: $padding_base * 4.5;
+				margin-top: math.div(-$padding2, 2);
 			}
 	
 			.slogan{

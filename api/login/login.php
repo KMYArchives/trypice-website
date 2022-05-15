@@ -2,7 +2,7 @@
 
 	switch ($urlE[2]) {
 		case 'login':
-			Request::post([ 'email', 'pass' ]);
+			Request::post([ 'email', 'pass', 'origin' ]);
 			$login->login();
 			break;
 

@@ -21,10 +21,6 @@
 			include_once 'devices.php';
 			break;
 
-		case 'devices':
-			include_once 'devices.php';
-			break;
-
 		case 'licenses':
 			include_once 'licenses.php';
 			break;

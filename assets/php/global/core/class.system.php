@@ -15,11 +15,13 @@
 
 		public static function dir(string $dir): string {
 			return match($dir) {
-				'apis'		=>	'api/',
-				'pages'		=>	'pages/',
-				'files'		=>	'files/',
-				'setups'	=>	'setups/',
-				'json'		=>	'assets/json/',
+				'apis'			=>	'api/',
+				'pages'			=>	'pages/',
+				'files'			=>	'files/',
+				'setups'		=>	'setups/',
+				'app_backups'	=>	'app/backups/',
+				'json'			=>	'assets/json/',
+				'app_samples'	=>	'app/samples/',
 			};
 		}
 

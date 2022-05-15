@@ -31,7 +31,9 @@ const ProductsBox = {
 
 	more_btn (total) {
 		if (total > 6) {
-			El.append(products_box, `<div class="more">Load more</div>`)
+			El.append(products_box, `
+				<div class="more">Load more</div>
+			`)
 		} else {
 			El.empty(`${ products_box } > .input`)
 		}

@@ -70,4 +70,20 @@
 			]);
 		}
 
+		public function get_id(string $product): string {
+			foreach ($this->db->query("SELECT id FROM ws_products WHERE slug_item = ?", [ 
+				Clean::slug($product)
+			]) as $data);
+
+			return $data['id'];
+		}
+
+		public function get_data(mixed $product, string $field): string {
+			foreach ($this->db->query("SELECT * FROM ws_products WHERE id = ?", [ 
+				Clean::numbers($product)
+			]) as $data);
+
+			return $data[$field];
+		}
+
 	}

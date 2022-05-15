@@ -5,9 +5,8 @@
 		"package": "gulp package",
 		"js-nw": "gulp js-compiler",
 		"sass-nw": "gulp sass-compiler",
-		"js-admin-nw": "gulp js-admin-compiler",
-		"dpkg": "yarn remove gulp gulp-concat gulp-sass gulp-babel gulp-plumber gulp-uglify gulp-watch gulp-zip gulp-javascript-obfuscator @babel/core @babel/preset-env",
-		"ipkg": "yarn add --dev gulp gulp-concat gulp-sass gulp-babel gulp-plumber gulp-uglify gulp-watch gulp-zip gulp-javascript-obfuscator @babel/core @babel/preset-env"
+		"dpkg": "yarn remove gulp gulp-concat gulp-sass gulp-babel gulp-plumber gulp-uglify gulp-watch gulp-zip gulp-javascript-obfuscator @babel/core @babel/preset-env sass",
+		"ipkg": "yarn add --dev gulp gulp-concat gulp-sass gulp-babel gulp-plumber gulp-uglify gulp-watch gulp-zip gulp-javascript-obfuscator @babel/core @babel/preset-env sass"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.15.8",

@@ -60,6 +60,8 @@
 
 		public static function setContentDisposition(string $param): void { self::set("Content-Disposition", $param); }
 
+		public static function setAccessControlMaxAge(string $value): void { self::set('Access-Control-Max-Age', $value); }
+
 		public static function setXContentTypeOptions(string $value): void { self::set('X-Content-Type-Options', $value); }
 
 		public static function setStrictTransportSecurity(string $value): void { self::set('Strict-Transport-Security', $value); }
@@ -67,5 +69,13 @@
 		public static function setContentDescription(string $description): void { self::set('Content-Description', $description); }
 
 		public static function setAccessControlAllowOrigin(string $value): void { self::set('Access-Control-Allow-Origin', $value); }
+
+		public static function setAccessControlAllowHeaders(string $value): void { self::set('Access-Control-Allow-Headers', $value); }
+
+		public static function setAccessControlAllowMethods(string $value): void { self::set('Access-Control-Allow-Methods', $value); }
+
+		public static function setAccessControlExposeHeaders(string $value): void { self::set('Access-Control-Expose-Headers', $value); }
+
+		public static function setAccessControlAllowCredentials(string $value): void { self::set('Access-Control-Allow-Credentials', $value); }
 
 	}

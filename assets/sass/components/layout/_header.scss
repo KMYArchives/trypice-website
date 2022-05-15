@@ -1,3 +1,5 @@
+@use "sass:math";
+
 header{
 	top: 0;
 	width: 100%;
@@ -36,7 +38,7 @@ header{
 					margin-left: .25vh;
 					text-align: center;
 					border-radius: 50%;
-					margin-top: $header_size / 5;
+					margin-top: math.div($header_size, 5);
 				}
 	
 				@include hover;

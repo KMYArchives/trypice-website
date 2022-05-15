@@ -23,12 +23,15 @@
 		}
 		
 		public function get_id(string $user = null) {
-			$user	=	$this->get_user();
-			if ($user) { $user = Clean::slug($user); }
-
-			foreach ($this->db->query("SELECT id FROM ws_clients WHERE user_id = ?", [
-				$user
-			]) as $data);
+			if ($user) {
+				foreach ($this->db->query("SELECT id FROM ws_clients WHERE user_id = ?", [
+					Clean::slug($user)
+				]) as $data);
+			} else {
+				foreach ($this->db->query("SELECT id FROM ws_clients WHERE user_id = ?", [
+					$this->get_user()
+				]) as $data);
+			}
 
 			return $data['id'];
 		}
