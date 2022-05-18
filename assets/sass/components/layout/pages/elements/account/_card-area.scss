@@ -10,7 +10,7 @@
 		cursor: pointer;
 		text-align: center;
 		display: inline-block;
-		background: $firstColor;
+		background: $secondColor;
 		border-radius: $padding2;
 		border-color: $blueColor;
 
@@ -25,10 +25,6 @@
 			border-top-right-radius: $padding2;
 		}
 	
-		@include hover($secondColor) {
-			@include drop-shadow-sm;
-			transition: .3s ease-in-out;
-			border-bottom: $padding1 solid $blueColor;
-		}
+		@include hover($secondColor);
 	}
 }

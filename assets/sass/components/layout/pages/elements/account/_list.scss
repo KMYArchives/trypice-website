@@ -8,6 +8,7 @@
 	background: $firstColor;
 	border-radius: $padding2;
 	justify-content: flex-start;
+	margin-bottom: $header_size + 2;
 
 	@import 'list/list-header';
 	@import 'list/list-content';

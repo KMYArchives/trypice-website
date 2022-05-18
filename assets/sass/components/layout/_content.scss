@@ -5,6 +5,7 @@
 	align-items: center;
 	width: $width_screen;
 	margin-top: $header_size;
+	margin-bottom: $header_size;
 	
 	@import 'pages/index';
 	@import 'pages/account';

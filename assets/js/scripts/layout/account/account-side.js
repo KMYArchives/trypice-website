@@ -1,19 +1,23 @@
 const AccountSidebar = {
 
 	layout () {
-		El.empty(account_sidebar)
-		El.append(account_sidebar, `
-			<div class="user">
-				<div class="cover-sidebar" id="${ Find.replace(cover_sidebar, '#', '') }"></div>
-				<img src="https://i.imgur.com/Kj3tLFw.png" class="avatar">
-				
-				<div class="name">Emily Silva</div>
-			</div>
+		if (Find.search(
+			URL.get_url(), 'account'
+		)) {
+			El.empty(account_sidebar)
+			El.append(account_sidebar, `
+				<div class="user">
+					<div class="cover-sidebar" id="${ Find.replace(cover_sidebar, '#', '') }"></div>
+					<img src="https://i.imgur.com/Kj3tLFw.png" class="avatar">
+					
+					<div class="name">Emily Silva</div>
+				</div>
 
-			<div class="menu"></div>
-		`)
+				<div class="menu"></div>
+			`)
 
-		this.menu_items()
+			this.menu_items()
+		}
 	},
 
 	menu_items () {

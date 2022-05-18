@@ -1,0 +1,60 @@
+.products{
+	height: auto;
+	display: block;
+	position: absolute;
+	text-align: center;
+	border-radius: $padding2;
+	margin-top: $header_size * 5.5;
+
+	.label{
+		display: block;
+		font-size: 2vh;
+		text-align: left;
+		font-weight: bold;
+		margin-top: $padding_base;
+		margin-bottom: $padding_base;
+	}
+
+	.products-area{
+		display: grid;
+		margin-top: 2vh;
+		margin-bottom: 2vh;
+		grid-gap: $padding2;
+		justify-content: center;
+		grid-template-columns: auto auto auto auto;
+	
+		.product{
+			cursor: pointer;
+			text-align: center;
+			padding-bottom: 1.5vh;
+			box-sizing: border-box;
+			background: $firstColor;
+			border-radius: $padding2;
+			border-bottom: $padding2 solid transparent;
+
+			img{
+				margin-bottom: $padding2;
+				margin-top: $padding_base + $padding2;
+			}
+	
+			.slogan{
+				font-size: 1.4vh;
+				letter-spacing: 1px;
+				padding: $padding_base;
+			}
+	
+			.name{
+				line-height: 6vh;
+				font-size: 1.75vh;
+				border-top-left-radius: $padding2;
+				border-top-right-radius: $padding2;
+			}
+		
+			@include hover($secondColor) {
+				@include drop-shadow-sm;
+				border-color: $blueColor;
+				transition: .3s ease-in-out;
+			}
+		}
+	}
+}

@@ -31,12 +31,12 @@
 			foreach ($query as $data) {
 				$list[]			=	[
 					'name'		=>	$data['name'],
-					'slug'		=>	$data['slug'],
 					'slogan'	=>	$data['slogan'],
+					'slug'		=>	$data['slug_item'],
 					'added_in'	=>	$data['added_in_item'],
 					'logo'		=>	$this->images->logo($data['id']),
 					'preview'	=>	$this->images->preview($data['id']),
-					'url'		=>	System::links('website') . $data['slug'],
+					'url'		=>	System::links('website') . $data['slug_item'],
 				];
 			}
 

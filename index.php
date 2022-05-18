@@ -3,7 +3,7 @@
 	require_once 'assets/php/autoload.php';
 
 	Headers::core();
-	//System::errors('none');
+	error_reporting(0);
 	Request::protect([ 'url', 'i' ]);
 	$urlE   =   explode('/', $_GET['url']);
 

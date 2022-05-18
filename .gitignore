@@ -16,7 +16,6 @@ node_modules/
 *.tar.gz
 
 # System file's
-*.txt
 *.log
 *.lock
 *.error
