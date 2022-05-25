@@ -1,8 +1,15 @@
-$bgColor: #202020;
-$fontColor: #E0E0E0;
-$iconColor: $fontColor;
-$firstColor: #262626;
-$secondColor: #222222;
+$bgColor: #F0F0F0;
+$fontColor: #6F6F6F;
+$firstColor: #FFFFFF;
+$secondColor: #F9F9F9;
+$borderColor: rgba(192, 192, 192, .25);
+$shadowColor: rgba(112, 112, 112, .125);
+
+// Account color
+$darkFontColor: #E0E0E0;
+$darkFirstColor: #262626;
+$darkSecondColor: #222222;
+$darkIconColor: $darkFontColor;
 
 $redColor: #C72C41;
 $blueColor: #3769BE;

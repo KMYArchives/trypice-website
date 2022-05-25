@@ -40,7 +40,25 @@
 	<div class="account-box" id="account-box"></div>
 	<div class="products-box" id="products-box"></div>
 
-	<section class="content"></section>
+	<div class="content">
+		<div class="index">
+			<div class="view-product">
+				<div class="navbar-product" id="navbar-product">
+					<img src="https://localhost/website/yuki/image/OCwOaNPj4Fe9OASFaM70SucP0VDyLC.png">
+					<div class="name">DBack Pro</div>
+					
+					<nav>
+						<div class="menu actived">Features</div>
+						<div class="menu">Screenshots</div>
+						<div class="menu">Support</div>
+
+						<div class="menu buy">Buy</div>
+						<div class="menu download">Download</div>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<?php
 	

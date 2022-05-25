@@ -1,0 +1,13 @@
+@use "sass:math";
+
+.view-product{
+	top: 0;
+	left: 0;
+	margin: 0;
+	position: absolute;
+	width: $width_screen;
+	background: $firstColor;
+	@include drop-shadow-sm;
+
+	@import 'view-products/navbar';
+}

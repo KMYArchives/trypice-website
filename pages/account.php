@@ -60,6 +60,12 @@
 						<div class="name">DBack Pro</div>
 					</div>
 
+					<div class="bar">
+						<div class="fas fa-download"></div>
+						<div class="fas fa-receipt"></div>
+						<div class="fas fa-circle-question"></div>
+					</div>
+
 					<div class="label">ID: 175755670</div>
 					<div class="label">Type: Personal</div>
 					<div class="label">Devices: 4 of 4</div>

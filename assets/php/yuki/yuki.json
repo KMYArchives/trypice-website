@@ -5,7 +5,8 @@
 		"bundle": "bundle/",
 		"css": "assets/css/",
 		"json": "assets/json/",
-		"image": "assets/img/"
+		"image": "assets/img/",
+		"video": "assets/media/"
 	},
 	"options": {
 		"level": 9,
@@ -13,11 +14,13 @@
 		"etag": "91242c4a4111df4cd6be844dfa3b89b5"
 	},
 	"bundle": [
-		"humanize",
-		"lodash",
-		"lozad",
 		"xss",
+		"lozad",
 		"axios",
+		"chart",
+		"cache",
+		"lodash",
+		"humanize",
 		"platform"
 	]
 }

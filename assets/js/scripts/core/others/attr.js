@@ -1,11 +1,13 @@
 const Attr = {
 
-	_set (el, attr, value) {
-		El.get(
-			el
-		).setAttribute(
-			attr, value
-		)
+	_set (e, attr, value) {
+		if (El.has(e)) {
+			El.get(
+				e
+			).setAttribute(
+				attr, value
+			)
+		}
 	},
 
 	set (el, attr, value) {

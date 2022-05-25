@@ -1,18 +1,17 @@
 .index{
 	display: block;
 	
-	.h1{
-		top: 30%;
+	.slogan{
+		top: 28%;
 		left: 50%;
 		margin: 0;
-		height: 36vh;
+		height: 30vh;
 		z-index: 999999;
 		font-size: 9.5vh;
 		font-weight: bold;
 		text-align: center;
 		position: absolute;
 		background-size: cover;
-		margin-top: $header_size * 4;
 
 		@include text-image-inside($bg_text_effect) {
 			@include text-shadow-sm;
@@ -20,4 +19,5 @@
 	}
 
 	@import 'elements/products/products';
+	@import 'elements/products/view-product';
 }

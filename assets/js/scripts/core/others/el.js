@@ -1,10 +1,12 @@
 const El = {
 
 	_text (el, text) {
-		if (text == null) {
-			return El.get(el).innerText
-		} else {
-			El.get(el).innerText = text
+		if (this.has(el)) {
+			if (text == null) {
+				return El.get(el).innerText
+			} else {
+				El.get(el).innerText = text
+			}
 		}
 	},
 

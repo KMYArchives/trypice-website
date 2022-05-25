@@ -3,17 +3,17 @@
 	right: 0;
 	display: none;
 	position: fixed;
-	font-size: 1.25vh;
-	z-index: 99999999;
+	z-index: 99999999999;
 	width: $wdith_user_box;
 	background: $firstColor;
 	@include drop-shadow-sm;
 	margin-top: $header_size;
-	margin-right: $wdith_user_box;
 	border-bottom-left-radius: $padding2;
 	border-bottom-right-radius: $padding2;
 
 	.user{
+		font-size: 1.25vh;
+		
 		.name{
 			top: 0;
 			left: 0;
@@ -38,7 +38,11 @@
 			@include profile-avatar-circle;
 		}
 
-		.cover-box{ @include profile-cover; }
+		.cover-box{
+			@include profile-cover;
+			border-top-left-radius: $padding2;
+			border-top-right-radius: $padding2;
+		}
 	}
 
 	@include profile-menu;

@@ -9,6 +9,11 @@ var account_box = '#account-box',
 	products_btn = '#products-btn',
 	products_box = '#products-box',
 	account_avatar = '#account-avatar'
+
+// Products variables
+var page_content = '.content',
+	products_h1 = '.content > .index > .slogan',
+	products_list = '.content > .index > .products > .products-area'
 	
 // User variables
 var cover_box = '#cover-box',

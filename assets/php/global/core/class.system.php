@@ -66,7 +66,7 @@
 			return match($image) {
 				'logo'				=>	self::yuki('image') . 'logo.png',
 				'logo_online'		=>	'https://i.imgur.com/CICxg8O.png',
-				'default-avatar'	=>	self::yuki('image') . 'avatar.jpg',
+				'default-avatar'	=>	self::yuki('image') . 'avatar.png',
 				'favicon'			=>	self::yuki('image') . 'favicon.png',
 				'user-cover'		=>	self::yuki('image') . 'user-cover.jpg',
 				'cloud_icon'		=>	self::yuki('image') . 'cloud-icon.png',

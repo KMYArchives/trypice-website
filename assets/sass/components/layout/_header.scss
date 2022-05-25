@@ -12,21 +12,19 @@ header{
 
 	.header-content{
 		display: flex;
-		margin: 0 20vh;
-		position: absolute;
+		margin-left: 3em;
+		margin-right: 3em;
 		align-items: center;
-		width: $width_screen;
-		justify-content: flex-end;
+		justify-content: space-between;
 		
 		nav{
-			order: 2;
-			font-size: 1.35vh;
+			font-weight: bold;
 			@include no-text-select;
 	
 			.item{
+				width: 8em;
 				float: left;
 				cursor: pointer;
-				width: $menu_size;
 				text-align: center;
 				height: $header_size;
 				line-height: $header_size;
@@ -43,9 +41,23 @@ header{
 	
 				@include hover;
 			}
+
+			.user{
+				width: $header_size !important;
+
+				@include hover-custom{
+					img{
+						transition: .3s ease all 0s;
+						@include filter-grayscale(100%);
+					}
+				}
+			}
 	
-			.actived{ background: $secondColor; }
-			.user{ width: $header_size !important; }
+			.actived{
+				@include drop-shadow-sm;
+				background: $secondColor;
+				@include filter-grayscale(100%);
+			}
 		}
 	}
 }

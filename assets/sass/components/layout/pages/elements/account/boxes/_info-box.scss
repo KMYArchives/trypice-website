@@ -1,14 +1,30 @@
 .info-box{
 	right: 0;
-	width: 25.75vh;
-	margin-top: 2vh;
-	margin-right: 4vh;
+	width: 17.25em;
+	margin-top: 1.5em;
 	position: absolute;
 	text-align: center;
+	margin-right: 2.75em;
 	@include drop-shadow-sm;
 	border-radius: $padding2;
 	background: $secondColor;
 	border-bottom: $padding1 solid $blueColor;
+
+	.bar{
+		height: 3.8vh;
+		display: block;
+		line-height: 3.8vh;
+
+		@include icons{
+			border: none;
+			width: 33.33%;
+			box-sizing: border-box;
+			line-height: 3.8vh !important;
+			&:not(:last-child) { border-right: $border_size solid $borderColor; }
+		}
+
+		border-bottom: $border_size solid $borderColor;
+	}
 
 	input{
 		float: left;

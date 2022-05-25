@@ -5,9 +5,8 @@ const AccountBox = {
 		El.append(account_box, `
 			<div class="user">
 				<div class="cover-box" id="${ Find.replace(cover_box, '#', '') }"></div>
-				<img src="https://i.imgur.com/Kj3tLFw.png" class="avatar">
-				
-				<div class="name">Emily Silva</div>
+				<img src="${ URL.get_url_base() }yuki/image/avatar.png" class="avatar">
+				<div class="name">Connect to your account</div>
 			</div>
 
 			<div class="menu"></div>

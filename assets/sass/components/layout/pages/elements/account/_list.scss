@@ -2,13 +2,15 @@
 	float: left;
 	margin: 2vh;
 	padding: 2vh;
-	width: 117.2vh;
+	width: 82.5em;
+	max-width: 83em;
+	margin-left: -1.5em;
 	flex-direction: column;
 	@include drop-shadow-sm;
 	background: $firstColor;
 	border-radius: $padding2;
 	justify-content: flex-start;
-	margin-bottom: $header_size + 2;
+	margin-top: $header_size + 2;
 
 	@import 'list/list-header';
 	@import 'list/list-content';

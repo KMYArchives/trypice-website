@@ -70,6 +70,18 @@
 			]);
 		}
 
+		public function check_slug(string $url): bool {
+			foreach ($this->db->query("SELECT COUNT(*) FROM ws_products WHERE slug_item = ?", [ 
+				Clean::slug($url) 
+			]) as $data);
+
+			if ($data['COUNT(*)'] > 0) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+
 		public function get_id(string $product): string {
 			foreach ($this->db->query("SELECT id FROM ws_products WHERE slug_item = ?", [ 
 				Clean::slug($product)

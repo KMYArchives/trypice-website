@@ -12,7 +12,7 @@ const Header = {
 					<div class="item">Workspace</div>
 
 					<div class="item user" id="${ Find.replace_all(account_avatar, '#', '') }" onclick="Header.toggle_account()">
-						<img src="https://i.imgur.com/Kj3tLFw.png" alt="">
+						<img src="${ URL.get_url_base() }yuki/image/avatar.png" alt="avatar-user">
 					</div>
 				</nav>
 			</div>
@@ -20,6 +20,8 @@ const Header = {
 	},
 
 	toggle_account () {
+		Login.verify()
+		
 		Classes.toggle(account_avatar, actived)
 		El.hide([ products_box ])
 		

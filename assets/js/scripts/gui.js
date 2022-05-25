@@ -1,9 +1,11 @@
 window.onload = e => {
 
+	Home.content()
 	Header.layout()
-	Products.init()
+
 	HeaderList.layout()
 	AccountBox.layout()
+	AccountSidebar.layout()
 
 	Classes.add([
 		account_box,
@@ -13,8 +15,10 @@ window.onload = e => {
 	Events.scroll('body', e => {
 		if (window.scrollY >= 50) {
 			Classes.add('header', 'header-scroll-effect')
+			Classes.add('.navbar-product', 'header-scroll-effect')
 		} else {
 			Classes.remove('header', 'header-scroll-effect')
+			Classes.remove('.navbar-product', 'header-scroll-effect')
 		}
 	})
 	

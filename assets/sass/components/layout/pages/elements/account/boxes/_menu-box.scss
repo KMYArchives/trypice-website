@@ -4,8 +4,8 @@
 	overflow: auto;
 	z-index: 999999;
 	max-height: 30vh;
-	margin-top: 5.5vh;
-	position: relative;
+	margin-top: .5vh;
+	position: absolute;
 	margin-left: $padding2;
 	@include no-text-select;
 	@include drop-shadow-sm;

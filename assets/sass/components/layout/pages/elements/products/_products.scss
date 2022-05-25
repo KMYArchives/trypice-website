@@ -24,9 +24,11 @@
 		grid-template-columns: auto auto auto auto;
 	
 		.product{
+			color: inherit;
 			cursor: pointer;
 			text-align: center;
 			padding-bottom: 1.5vh;
+			text-decoration: none;
 			box-sizing: border-box;
 			background: $firstColor;
 			border-radius: $padding2;
@@ -37,7 +39,7 @@
 				margin-top: $padding_base + $padding2;
 			}
 	
-			.slogan{
+			.desc{
 				font-size: 1.4vh;
 				letter-spacing: 1px;
 				padding: $padding_base;

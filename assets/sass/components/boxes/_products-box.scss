@@ -5,12 +5,12 @@
 	right: 0;
 	display: none;
 	position: fixed;
-	z-index: 99999999;
+	margin-right: 7em;
 	text-align: center;
+	z-index: 9999999999;
 	@include drop-shadow-sm;
 	background: $firstColor;
 	margin-top: $header_size;
-	margin-right: $wdith_user_box;
 	border-bottom-left-radius: $padding2;
 	border-bottom-right-radius: $padding2;
 
@@ -110,7 +110,6 @@
 			}
 	
 			@include hover($secondColor) {
-				@include drop-shadow-sm;
 				transition: .3s ease-in-out;
 				border-left: $padding1 solid $blueColor;
 			}

@@ -1,6 +1,10 @@
 <?php
 
 	switch ($urlE[2]) {
+		case 'details':
+			include_once 'details.php';
+			break;
+			
 		case 'backups':
 			include_once 'backups.php';
 			break;

@@ -1,0 +1,64 @@
+.navbar-product{
+	margin: 0 20vh;
+	position: fixed;
+	z-index: 99999999;
+	width: $width_screen;
+	height: $header_size;
+	background: $firstColor;
+	@include drop-shadow-sm;
+	border-radius: $padding2;
+	margin-top: $padding_base;
+	line-height: $header_size;
+	margin-top: $header_size + 1.5;
+
+	img{
+		float: left;
+		width: 4.5vh;
+		cursor: pointer;
+		margin-top: 1vh;
+		margin-left: 1vh;
+
+		@include hover-custom{
+			transition: .3s ease all 0s;
+			@include filter-grayscale(100%);
+		}
+	}
+
+	nav{
+		float: right;
+
+		.menu{
+			float: left;
+			width: 14vh;
+			color: inherit;
+			cursor: pointer;
+			font-size: 1.4vh;
+			text-align: center;
+			text-decoration: none;
+			@include hover;
+		}
+
+		.download{
+			border-top-right-radius: $padding2;
+			border-bottom-right-radius: $padding2; 
+			@include hover($greenColor, $firstColor);
+		}
+
+		.actived{ background: $secondColor; }
+		.buy{ @include hover($blueColor, $firstColor); }
+	}
+
+	.name{
+		float: left;
+		color: inherit;
+		font-size: 120%;
+		cursor: pointer;
+		margin-left: 2vh;
+		text-decoration: none;
+
+		@include hover-custom{
+			text-decoration: underline;
+			transition: .3s ease all 0s;
+		}
+	}
+}

@@ -9,10 +9,6 @@ const HeaderList = {
 					<div class='icon'>
 						<div class='fas fa-arrow-left'></div>
 					</div>
-
-					<div class='icon'>
-						<div class='fas fa-bars'></div>
-					</div>
 				</div>
 
 				<div class="label"></div>

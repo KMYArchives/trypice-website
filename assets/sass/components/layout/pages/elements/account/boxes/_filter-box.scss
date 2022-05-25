@@ -1,7 +1,7 @@
 .filter-box{
 	float: right;
 	z-index: 999999;
-	line-height: 5vh;
+	line-height: 3.5em;
 	position: relative;
 	margin-left: $padding2;
 	@include no-text-select;

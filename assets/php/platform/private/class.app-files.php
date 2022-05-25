@@ -30,7 +30,8 @@
 			foreach ($this->db->query("SELECT slug, type, prod_id, new_name, original_name, added_in FROM ws_app_files WHERE prod_id = ?", [
 				$this->products->get_id($_GET['product']),
 			]) as $data) {
-				$file				=	System::dir('app_samples') . $data['new_name'];	
+				$file				=	System::dir('app_samples') . $data['new_name'];
+				
 				$list[]				=	[
 					'type'			=>	$data['type'],
 					'new_name'		=>	$data['new_name'],
