@@ -6,8 +6,6 @@
         "phpfastcache/phpfastcache": "^8.0",
         "miladrahimi/phprouter": "^5.1",
         "erusev/parsedown": "^1.7",
-        "stripe/stripe-php": "^7.113",
-        "league/omnipay": "^3.2",
-        "omnipay/stripe": "^3.1"
+        "stripe/stripe-php": "^7.113"
     }
 }

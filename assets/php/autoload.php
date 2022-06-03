@@ -57,3 +57,4 @@
 	// Private
 	$app_files		=	new AppFiles;
 	$app_backups	=	new AppBackups;
+	$app_activate	=	new AppActivate;

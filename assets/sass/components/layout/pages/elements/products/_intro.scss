@@ -1,0 +1,56 @@
+.intro{
+	left: 50%;
+	width: 70em;
+	margin-left: -35em;
+	text-align: center;
+	position: absolute;
+	padding-top: $padding4;
+
+	.btn{
+		width: 11em;
+		cursor: pointer;
+		color: $firstColor;
+		height: $header_size;
+		display: inline-block;
+		background: $fontColor;
+		margin-right: $padding2;
+		line-height: $header_size;
+		font-size: $smallFont + .05;
+		border: $border_size solid $borderColor;
+
+		&:last-child{ margin-right: 0; }
+		&:hover, &:focus{ @include drop-shadow-sm; }
+		.fas, .far, .fab{ margin-right: $padding_base * 2; }
+	}
+
+	.blue{
+		background: $blueColor;
+		border-color: $blueColor;
+	}
+
+	.green{
+		background: $greenColor;
+		border-color: $greenColor;
+	}
+	
+	.platforms{
+		margin-top: -$padding_base;
+		margin-bottom: $padding_base;
+		
+		.fab, .far, .fas{
+			font-size: 150%;
+			padding: $padding2;
+		}
+
+		.soon{ opacity: .5; }
+	}
+
+	.intro-text{
+		font-size: 400%;
+		font-weight: bold;
+		color: $blueColor;
+		padding: $padding_base;
+	}
+
+	.blue, .green{ @include hover($firstColor, $fontColor, $secondColor); }
+}

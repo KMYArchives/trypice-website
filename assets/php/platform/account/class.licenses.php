@@ -11,7 +11,7 @@
 				$this->clients->get_id() 
 			]) as $data) {
 				$data['product']		=	$data['name'];
-				$data['serial_number']	=	$this->serial->decode($data['serial_number']);
+				$data['serial_number']	=	OpenSSL::decrypt($data['serial_number']);
 
 				unset($data['name']);
 				Callback::json(200, $data);

@@ -31,6 +31,13 @@
 			text-align: center;
 		}
 
+		@include icons{
+			width: 7vh;
+			cursor: pointer;
+			text-align: center;
+			@include hover(inherit, $redColor);
+		}
+
 		.ip{ width: 15.5vh; }
 
 		.name{ width: 25.5vh; }

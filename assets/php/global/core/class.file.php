@@ -57,7 +57,7 @@
 			}
 		}
 
-		public static function read($file, $options = []) {
+		public static function read(string $file, array $options = []): mixed {
 			if ($options['remote'] == false || $options['remote'] == null) {
 				if (self::file_exists($file)) {
 					$content	=	file_get_contents($file);
@@ -78,7 +78,7 @@
 			}
 		}
 
-		public static function upload($input, $target, $options = []) {
+		public static function upload(string $input, string $target, array $options = []): mixed {
 			if (in_array($_FILES[$from]['type'], $options['ext'])) {
 				if ($_FILES[$from]['size'] <= $options['max_size']) {
 					if (copy($_FILES[$from]['tmp_name'], $target)) {
@@ -94,7 +94,7 @@
 			}
 		}
 
-		public static function create($file, $content, $options = []) {
+		public static function create(string $file, mixed $content, array $options = []): mixed {
 			if ($options['hex_decode'] == true) { 
 				$content	=	hex2bin(
 					Clean::string(
@@ -112,6 +112,54 @@
 				return true;
 			} else {
 				throw new \InvalidArgumentException('File not created');
+			}
+		}
+
+		public static function rename(string $old, string $new, array $options = []): mixed {
+			if (rename($old, $new)) {
+				return true;
+			} else {
+				throw new \InvalidArgumentException('File not renamed');
+			}
+		}
+
+		public static function copy(string $old, string $new, array $options = []): mixed {
+			if (copy($old, $new)) {
+				return true;
+			} else {
+				throw new \InvalidArgumentException('File not copied');
+			}
+		}
+
+		public static function move(string $old, string $new, array $options = []): mixed {
+			if (rename($old, $new)) {
+				return true;
+			} else {
+				throw new \InvalidArgumentException('File not moved');
+			}
+		}
+
+		public static function chmod(string $file, int $mode, array $options = []): mixed {
+			if (chmod($file, $mode)) {
+				return true;
+			} else {
+				throw new \InvalidArgumentException('File not chmod');
+			}
+		}
+
+		public static function image_to_webp(string $source, string $dest): mixed {
+			if (self::file_exists($options['path'] . $options['file'])) {
+				$image				=	match(
+					getimagesize($source)['mime']
+				) {
+					'image/gif'		=>	imagecreatefromgif($source),
+					'image/png'		=>	imagecreatefrompng($source),
+					'image/jpeg'	=>	imagecreatefromjpeg($source),
+				};
+			
+				imagewebp($image, $dest);
+			} else {
+				throw new \InvalidArgumentException('File not found');
 			}
 		}
 

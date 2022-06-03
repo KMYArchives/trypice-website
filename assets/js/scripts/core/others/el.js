@@ -161,4 +161,9 @@ const El = {
 		}
 	},
 
+	transition (el, transition, duration = 500) {
+		El.get(el).style.transition = animation
+		El.get(el).style.transitionDuration = duration + 'ms'
+	},
+
 }

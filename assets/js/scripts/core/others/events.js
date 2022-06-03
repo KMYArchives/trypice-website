@@ -200,4 +200,16 @@ const Events = {
 		)
 	},
 
+	canplaythrough (element, callback) {
+		El.get(element).addEventListener(
+			'canplaythrough', callback
+		)
+	},
+
+	on (element, event, callback) {
+		El.get(element).addEventListener(
+			event, callback
+		)
+	},
+
 }

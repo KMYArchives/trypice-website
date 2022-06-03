@@ -1,3 +1,37 @@
+## 8.1.3
+#### _"Don't throw the masks, yet."_
+##### 25 may 2022
+- __Core__
+  - Fixed #860 // Cache item throw an error on save with DateTimeImmutable date objects
+- __Drivers__
+  - Fixed #866 // Deprecated Method Cassandra\ExecutionOptions starting of Cassandra 1.3
+
+## 8.1.2
+#### _"Free the masks"_
+##### 04 march 2022
+- __Drivers__
+  - Fixed #853 // Configuration validation issue with Memcached socket (path)
+
+## 8.1.1
+#### _"Re-re-Vaccinated"_
+##### 21 february 2022
+- __Core__
+  - Fixed #848 // Others PHP 8.1 compatibility bugs
+
+## 8.1.0
+#### _"Re-Vaccinated"_
+##### 05 january 2022
+- __Core__
+  - Fixed #831 // Bug in the PSR-16 getMultiple method
+- __Utils__
+  - Fixed #846 // PHP 8.1 compatibility bug
+- __Drivers__
+  - Fixed #840 // Invalid type hint found for "htaccess", expected "string" got "boolean" for leveldb driver
+- __Misc__
+  - Updated some docs files (fixed typos)
+- __Tests__
+  - Migrate all Travis tests on bionic
+
 ## 8.0.8
 #### _"Sanitary-passed"_
 ##### 18 august 2021

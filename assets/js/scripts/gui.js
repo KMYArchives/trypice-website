@@ -1,5 +1,7 @@
 window.onload = e => {
 
+	Login.verify()
+
 	Home.content()
 	Header.layout()
 
@@ -15,10 +17,8 @@ window.onload = e => {
 	Events.scroll('body', e => {
 		if (window.scrollY >= 50) {
 			Classes.add('header', 'header-scroll-effect')
-			Classes.add('.navbar-product', 'header-scroll-effect')
 		} else {
 			Classes.remove('header', 'header-scroll-effect')
-			Classes.remove('.navbar-product', 'header-scroll-effect')
 		}
 	})
 	

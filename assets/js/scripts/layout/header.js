@@ -20,8 +20,6 @@ const Header = {
 	},
 
 	toggle_account () {
-		Login.verify()
-		
 		Classes.toggle(account_avatar, actived)
 		El.hide([ products_box ])
 		

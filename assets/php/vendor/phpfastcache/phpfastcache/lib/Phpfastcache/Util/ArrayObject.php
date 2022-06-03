@@ -30,7 +30,7 @@ class ArrayObject implements ArrayAccess, Iterator, Countable
     /**
      * @var array
      */
-    private $array = [];
+    private $array;
 
     /**
      * @var int
@@ -49,6 +49,7 @@ class ArrayObject implements ArrayAccess, Iterator, Countable
     /**
      * @return mixed
      */
+    #[\ReturnTypeWillChange] // PHP 8.1 compatibility
     public function current()
     {
         return $this->array[$this->position];
@@ -57,7 +58,7 @@ class ArrayObject implements ArrayAccess, Iterator, Countable
     /**
      *
      */
-    public function next()
+    public function next(): void
     {
         ++$this->position;
     }
@@ -90,7 +91,7 @@ class ArrayObject implements ArrayAccess, Iterator, Countable
     /**
      *
      */
-    public function rewind()
+    public function rewind(): void
     {
         $this->position = 0;
     }
@@ -105,8 +106,9 @@ class ArrayObject implements ArrayAccess, Iterator, Countable
 
     /**
      * @param mixed $offset
-     * @return mixed|null
+     * @return mixed
      */
+    #[\ReturnTypeWillChange] // PHP 8.1 compatibility
     public function offsetGet($offset)
     {
         return $this->array[$offset] ?? null;
@@ -116,7 +118,7 @@ class ArrayObject implements ArrayAccess, Iterator, Countable
      * @param mixed $offset
      * @param mixed $value
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         // NOTE: THIS IS THE FIX FOR THE ISSUE "Indirect modification of overloaded element of SplFixedArray has no effect"
         // NOTE: WHEN APPENDING AN ARRAY (E.G. myArr[] = 5) THE KEY IS NULL, SO WE TEST FOR THIS CONDITION BELOW, AND VOILA
@@ -131,15 +133,15 @@ class ArrayObject implements ArrayAccess, Iterator, Countable
     /**
      * @param mixed $offset
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->array[$offset]);
     }
 
     /**
-     * @return array|mixed
+     * @return array
      */
-    public function toArray()
+    public function toArray(): array
     {
         return $this->array;
     }
@@ -148,7 +150,7 @@ class ArrayObject implements ArrayAccess, Iterator, Countable
      * @param array $array
      * @return self
      */
-    public function mergeArray($array): self
+    public function mergeArray(array $array): self
     {
         $this->array = array_merge($this->array, $array);
 
@@ -156,9 +158,9 @@ class ArrayObject implements ArrayAccess, Iterator, Countable
     }
 
     /**
-     * @return array|mixed
+     * @return array
      */
-    protected function &getArray()
+    protected function &getArray(): array
     {
         return $this->array;
     }
