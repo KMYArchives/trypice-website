@@ -19,6 +19,7 @@
 				'pages'			=>	'pages/',
 				'files'			=>	'files/',
 				'setups'		=>	'setups/',
+				'images'		=>	'assets/img/',
 				'app_backups'	=>	'app/backups/',
 				'json'			=>	'assets/json/',
 				'app_samples'	=>	'app/samples/',
@@ -27,10 +28,10 @@
 
 		public static function yuki(string $page): string {
 			return match($page) {
+				'image'	=>	self::links('website') . self::dir('images'),
 				'js'	=>	self::links('website') . self::global('render') . 'js',
 				'css'	=>	self::links('website') . self::global('render') . 'css',
 				'json'	=>	self::links('website') . self::global('render') . 'json/',
-				'image'	=>	self::links('website') . self::global('render') . 'image/',
 			};
 		}
 

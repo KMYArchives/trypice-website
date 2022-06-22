@@ -7,7 +7,7 @@ const Home = {
 			El.append(page_content, `
 				<div class="index">
 					<div class='intro'>
-						<div class='intro-text'>We make tools for all</div>
+						<div class='intro-text'>We build tools for all</div>
 					</div>
 
 					<div class='products'>

@@ -34,11 +34,13 @@
 	?>
 </head>
 <body>
-	<div class="mask"></div>
-	<div class="confirm-mdl"></div>
+	<?php
+	
+		include_once 'assets/php/views/header.php';
+		include_once 'assets/php/views/account-box.php';
+		
+	?>
 
-	<header></header>
-	<div class="account-box" id="account-box"></div>
 	<div class="products-box" id="products-box"></div>
 
 	<div class="content">

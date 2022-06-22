@@ -38,6 +38,8 @@
 
 		public static function protocols(string $string) { return self::protocols_keywords($string); }
 
+		public static function float(string $string) { return preg_replace('/[^0-9.]/', '', $string); }
+
 		public static function numbers(string $string) { return preg_replace('/[^0-9]/', '', $string); }
 
 		public static function slug(string $string) { return preg_replace('/[^A-Za-z0-9]/', '', $string); }

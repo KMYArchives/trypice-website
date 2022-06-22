@@ -10,6 +10,7 @@
 		'global/utils/',
 		'global/system/',
 		'global/security/',
+		'global/utils/regex/',
 
 		// Platform
 		'platform/login/',
@@ -37,6 +38,7 @@
 	$login			=	new Login;
 	$sign_up		=	new Signup;
 	$otp_code		=	new OTPCode;
+	$sessions		=	new Sessions;
 
 	// Public
 	$menu			=	new Menu;
@@ -58,3 +60,6 @@
 	$app_files		=	new AppFiles;
 	$app_backups	=	new AppBackups;
 	$app_activate	=	new AppActivate;
+
+	// Payments
+	$currencies		=	new Currencies;

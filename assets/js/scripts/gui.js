@@ -1,13 +1,9 @@
 window.onload = e => {
 
 	Login.verify()
-
+	
 	Home.content()
-	Header.layout()
-
 	HeaderList.layout()
-	AccountBox.layout()
-	AccountSidebar.layout()
 
 	Classes.add([
 		account_box,

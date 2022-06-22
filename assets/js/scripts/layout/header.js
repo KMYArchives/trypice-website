@@ -12,7 +12,7 @@ const Header = {
 					<div class="item">Workspace</div>
 
 					<div class="item user" id="${ Find.replace_all(account_avatar, '#', '') }" onclick="Header.toggle_account()">
-						<img src="${ URL.get_url_base() }yuki/image/avatar.png" alt="avatar-user">
+						<img src="${ URL.get_url_base() }assets/img/avatar.png" alt="avatar-user">
 					</div>
 				</nav>
 			</div>

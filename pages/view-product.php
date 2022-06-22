@@ -34,10 +34,13 @@
 	?>
 </head>
 <body>
-	<div class="mask"></div>
-
-	<header></header>
-	<div class="account-box" id="account-box"></div>
+	<?php
+	
+		include_once 'assets/php/views/header.php';
+		include_once 'assets/php/views/account-box.php';
+		
+	?>
+	
 	<div class="products-box" id="products-box"></div>
 
 	<div class="content">
