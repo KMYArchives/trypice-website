@@ -11,7 +11,7 @@
 			break;
 
 		case 'convert':
-			Request::get([ 'to', 'amount' ]);
+			Request::get([ 'to', 'from', 'amount' ]);
 			$currencies->convert();
 			break;
 		

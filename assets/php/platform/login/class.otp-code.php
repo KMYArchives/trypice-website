@@ -4,7 +4,7 @@
 		
 		private $db, $clients;
 
-		private function type($type) {
+		private function type(string $type): string {
 			return match (Clean::string($type, 'az')) {
 				default		=>	false,
 				'login'		=>	'login',
@@ -14,10 +14,15 @@
 			};
 		}
 
-		public function generate() {
+		public function __construct() {
+			$this->db		=	new DB;
+			$this->clients	=	new Clients;
+		}
+
+		public function generate(): void {
 			if (Validation::email('email', 'post')) {
+				$otp		=	Random::slug(12);
 				$slug		=	Random::slug([ 36, 48 ]);
-				$otp		=	Random::string(12, true, true, true);
 				$username	=	$this->clients->get_username($_POST['email']);
 				
 				if ($username != false) {
@@ -52,13 +57,8 @@
 				Callback::json(500, [ 'return' => 'error-email-invalid' ]);
 			}
 		}
-
-		public function __construct() {
-			$this->db		=	new DB;
-			$this->clients	=	new Clients;
-		}
 		
-		public function check_exists() {
+		public function check_exists(): void {
 			if (count(
 				$this->db->query("SELECT slug FROM ws_otp_code WHERE slug = ?", [
 					Clean::slug($_GET['slug'])
@@ -70,7 +70,7 @@
 			}
 		}
 
-		public function delete($type, $code) {
+		public function delete(string $type, string $code): bool {
 			if ($this->db->query("DELETE FROM ws_otp_code WHERE type = ? AND code = ?", [
 				$this->type($type), Clean::slug($code),
 			])) {
@@ -80,7 +80,7 @@
 			}
 		}
 		
-		public function verify($type, $code) {
+		public function verify(string $type, string $code): bool {
 			$query	=	$this->db->query("SELECT id FROM ws_otp_code WHERE type = ? AND code = ?", [
 				$this->otp_type($type), 
 				$code
@@ -93,7 +93,7 @@
 			}
 		}
 
-		public function get_username($type, $code) {
+		public function get_username(string $type, string $code): string {
 			$query	=	$this->db->query("SELECT username FROM ws_otp_code WHERE type = ? AND code = ?", [
 				$this->otp_type($type),
 				$code

@@ -58,7 +58,7 @@
 			if ($this->db->query("INSERT INTO ws_licenses(slug, prod_id, unique_key, serial_number, username) VALUES(?, ?, ?, ?, ?)", [
 				$slug,
 				$prod_id,
-				Random::string(32, true, true, true, true),
+				Random::slug(32),
 				$this->serial->encode($this->serial->create()),
 					
 				$this->clients->get_id(),
@@ -109,7 +109,6 @@
 		}
 
 		public function activation() {
-			Headers::setContentType('application/json');
 			$serial_number	=	Clean::default($_POST['serial']);
 
 			if ($this->serial->valid($serial_number) && Validation::uuid('uuid', 'post')) {

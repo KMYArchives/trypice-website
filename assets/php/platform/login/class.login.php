@@ -81,9 +81,7 @@
 		
 		public function set_user($user) {
 			$value	=	OpenSSL::encrypt(
-				Random::string(
-					18, true, true, true
-				) . '-' . $user
+				Random::slug(18) . '-' . $user
 			);
 
 			return Cookies::create([

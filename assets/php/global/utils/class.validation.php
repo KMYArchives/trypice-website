@@ -59,7 +59,7 @@
 				}
 			}
 
-			if (preg_match("/[a-z0-9]{8,128}/", $string)) {
+			if (Regex::hash($string)) {
 				return true;
 			} else {
 				return false;

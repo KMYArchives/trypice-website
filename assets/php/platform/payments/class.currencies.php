@@ -24,6 +24,16 @@
 			return $name;
 		}
 
+		private function _code(string $code) {
+			foreach ($this->_load_symbols() as $key) {
+				if ($key['code'] == strtoupper($code)) {
+					$symbol		=	$key['code'];
+				}
+			}
+
+			return $symbol;
+		}
+
 		private function _symbol(string $code) {
 			foreach ($this->_load_symbols() as $key) {
 				if ($key['code'] == strtoupper($code)) {
@@ -49,7 +59,7 @@
 
 			foreach ($currencies as $key) {
 				if ($key['code'] == strtoupper($code)) {
-					$currency['code']	=	strtoupper($code);
+					$currency['code']	=	$this->_code($code);
 					$currency['name']	=	$this->_name($code);
 					$currency['symbol']	=	$this->_symbol($code);
 				}
@@ -72,10 +82,13 @@
 
 			if ($response->success == true) {
 				Callback::json(200, [
-					'to'		=>	$this->_name($to),
-					'from'		=>	$this->_name($from),
-					'amount'	=>	$this->_symbol($from) . ' ' . number_format($amount, 2, '.', ','),
-					'converted'	=>	$this->_symbol($to) . ' ' . number_format($response->result, 2, '.', ','),
+					'to'			=>	$this->_name($to),
+					'from'			=>	$this->_name($from),
+					'amount'		=>	$this->_symbol($from) . ' ' . number_format($amount, 2, '.', ','),
+					'converted'		=>	[
+						'code'		=>	$this->_code($to),
+						'amount'	=>	$this->_symbol($to) . ' ' . number_format($response->result, 2, '.', ','),
+					],
 				]);
 			} else {
 				Callback::json(500, [

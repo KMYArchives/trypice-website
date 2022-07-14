@@ -42,6 +42,9 @@
 		}
 
 		public static function decode(string $ip, bool $json = false): string {
+			Headers::setHttpCode(200);
+			Headers::setContentType('application/json');
+			
 			return File::read(
 				self::api(
 					OpenSSL::decrypt($ip), 'method1'

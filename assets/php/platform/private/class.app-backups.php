@@ -46,9 +46,7 @@
 		}
 
 		private function _insert(string $fileName): void {
-			if ($this->db->query("
-				INSERT INTO ws_backups(filename, slug, prod_id, username) VALUES(?, ?, ?, ?)
-			", [
+			if ($this->db->query("INSERT INTO ws_backups(filename, slug, prod_id, username) VALUES(?, ?, ?, ?)", [
 				$fileName,
 				Random::slug([ 36, 48 ]),
 				$this->products->get_id($_POST['product']),

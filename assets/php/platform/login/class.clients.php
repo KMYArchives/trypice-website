@@ -4,7 +4,7 @@
 
 		private $db;
 
-		public function get_user() {
+		public function get_user(): string {
 			return Str::last_slice(
 				OpenSSL::decrypt(
 					Cookies::get('user')
@@ -12,7 +12,7 @@
 			);
 		}
 
-		public function req_user_id() {
+		public function req_user_id(): string {
 			if ($_GET['username']) {
 				return Clean::slug(
 					$_GET['username'], 'Az09'
@@ -22,7 +22,7 @@
 			}
 		}
 		
-		public function get_id(string $user = null) {
+		public function get_id(string $user = null): string {
 			if ($user) {
 				foreach ($this->db->query("SELECT id FROM ws_clients WHERE user_id = ?", [
 					Clean::slug($user)
@@ -36,7 +36,7 @@
 			return $data['id'];
 		}
 		
-		public function get_username(string $email) {
+		public function get_username(string $email): string {
 			$query	=	$this->db->query("SELECT id FROM ws_clients WHERE email = ?", [
 				OpenSSL::encrypt(
 					Clean::default($email)

@@ -4,7 +4,7 @@
 
 		private $db, $clients, $linked;
 
-		private function get_id($slug) {
+		private function get_id(string $slug): int {
 			foreach ($this->db->query("SELECT id FROM ws_devices WHERE slug = ? LIMIT 1", [ 
 				$slug 
 			]) as $data);
@@ -12,7 +12,7 @@
 			return $data['id'];
 		}
 
-		private function get_prod_id($slug) {
+		private function get_prod_id(string $slug): int {
 			foreach ($this->db->query("SELECT prod_id FROM ws_licenses WHERE slug = ? LIMIT 1", [ 
 				$slug 
 			]) as $data);
@@ -20,7 +20,7 @@
 			return $data['prod_id'];
 		}
 
-		private function check_exists($uuid, $username) {
+		private function check_exists(string $uuid, int|string $username): bool {
 			if (count(
 				$this->db->query("SELECT id FROM ws_devices WHERE uuid = ? AND username = ? LIMIT 1", [
 					$uuid, $username
@@ -32,7 +32,7 @@
 			}
 		}
 
-		public function get() {
+		public function get(): void {
 			foreach ($this->db->query("SELECT ip, uuid, hostname, os, arch, cpu, model, favorited, added_in FROM ws_devices WHERE username = ? AND slug = ?", [
 				$this->clients->get_id(), 
 				Clean::slug($_GET['slug']),
@@ -45,7 +45,7 @@
 			}
 		}
 		
-		public function list() {
+		public function list(): void {
 			$sql_max	=	System::global('sql_max');
 			$offset		=	($_GET['offset']) ? Clean::numbers($_GET['offset']) : 0;
 
@@ -82,14 +82,13 @@
 			]);
 		}
 
-		public function delete() {
+		public function delete(): void {
 			$slug	=	Clean::slug($_POST['slug']);
 			
 			foreach ($this->db->query("SELECT id FROM ws_devices WHERE slug = ? AND username = ?", [
 				$slug, $this->clients->get_id(),
 			]) as $data);
 
-			Headers::setContentType('application/json');
 			if ($this->db->query("DELETE FROM ws_devices WHERE slug = ? AND username = ?" , [
 				$slug, 
 				$this->clients->get_id() 
@@ -102,7 +101,7 @@
 			}
 		}
 
-		public function favorited() {
+		public function favorited(): void {
 			foreach ($this->db->query("SELECT slug, favorited, username FROM ws_devices WHERE slug = ? AND username = ? LIMIT 1" , [ 
 				Clean::slug($_POST['slug']),
 				$this->clients->get_id() 
@@ -130,7 +129,7 @@
 			}
 		}
 
-		public function edit($data) {
+		public function edit(array $data): void {
 			if ($this->db->query("UPDATE ws_devices SET os = ?, cpu = ?, arch = ?, hostname = ? WHERE uuid = ? AND username = ?", [
 				Clean::default($_POST['os']),
 				Clean::default($_POST['cpu']),
@@ -158,7 +157,7 @@
 			$this->clients	=	new Clients;
 		}
 
-		public function create($data) {
+		public function create($data): void {
 			$slug	=	Random::slug([ 36, 48 ]);
 			$uuid	=	OpenSSL::encrypt(
 				Clean::default($_POST['uuid'])

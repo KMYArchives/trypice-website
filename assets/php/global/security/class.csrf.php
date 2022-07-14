@@ -2,15 +2,13 @@
 
 	class CSRF {
 
-		protected function code() {
+		protected function code(): string {
 			return Hash::token(
-				Random::string(64, true, true, true) . 
-				md5($_SERVER['REMOTE_ADDR']) . 
-				sha1($_SERVER['HTTP_USER_AGENT'])
+				Random::slug(64) . md5($_SERVER['REMOTE_ADDR']) . sha1($_SERVER['HTTP_USER_AGENT'])
 			);
 		}
 
-		public function generate() {
+		public function generate(): string {
 			if (Cookies::has('csrf') == false) {
 				return Cookies::create([ 
 					'csrf', $this->code(), time() + 300000 
@@ -18,7 +16,7 @@
 			}
 		}
 
-		public function validate() {
+		public function validate(): string {
 			if (Clean::string($_POST['csrf'], 'Az09') && Cookies::has('csrf') == true) {
 				if (Cookies::get('csrf') != Clean::string(
 					$_POST['csrf'], 'Az09'
@@ -35,6 +33,6 @@
 			}
 		}
 
-		public function get() { echo Cookies::get('csrf'); }
+		public function get(): string { echo Cookies::get('csrf'); }
 
 	}

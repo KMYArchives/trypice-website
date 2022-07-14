@@ -12,19 +12,65 @@
 			);
 		}
 
-		public static function uniqid (): string {
+		public static function uniqid(): string {
 			return uniqid(
 				mt_rand(), true
 			);
+		}
+
+		public static function int(int $size): string {
+			$string		=	'0123456789';
+
+			for ($n = 1; $n <= $size; $n++) {
+				$rand	=	mt_rand(1, strlen($string));
+				$ret	.=	$string[$rand - 1];
+			}
+
+			return $ret;
+		}
+
+		public static function lower(int $size): string {
+			$string		=	'abcdefghijklmnopqrstuvwxyz';
+
+			for ($n = 1; $n <= $size; $n++) {
+				$rand	=	mt_rand(1, strlen($string));
+				$ret	.=	$string[$rand - 1];
+			}
+
+			return $ret;
+		}
+
+		public static function upper(int $size): string {
+			$string		=	'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+			for ($n = 1; $n <= $size; $n++) {
+				$rand	=	mt_rand(1, strlen($string));
+				$ret	.=	$string[$rand - 1];
+			}
+
+			return $ret;
+		}
+
+		public static function special(int $size): string {
+			$string		=	'?!@#$%*/&()[]{}+-_=.,;';
+
+			for ($n = 1; $n <= $size; $n++) {
+				$rand	=	mt_rand(1, strlen($string));
+				$ret	.=	$string[$rand - 1];
+			}
+
+			return $ret;
 		}
 
 		public static function slug(int|array $size): string {
 			$string		=	'0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
 			if (is_array($size)) {
-				$size	=	rand(
-					$size[0], $size[1]
-				);
+				if (is_int($size[0]) && is_int($size[1])) {
+					$size	=	rand(
+						$size[0], $size[1]
+					);
+				}
 			}
 
 			for ($n = 1; $n <= $size; $n++) {
@@ -38,7 +84,7 @@
 			return $ret;
 		}
 
-		public static function string(int $size, bool $low, bool $upp, bool $num, bool $sym = false): string {
+		public static function string(int|array $size, array $configs): string {
 			$string		=	null;
 			$char		=	[
 				'num'	=>	'0123456789',
@@ -47,16 +93,25 @@
 				'upp'	=>	'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
 			];
 
-			if ($low) { $string .= $char['low']; }
-			if ($upp) { $string .= $char['upp']; }
-			if ($num) { $string .= $char['num']; }
-			if ($sym) { $string .= $char['sym']; }
+			if (is_array($size)) {
+				if (is_int($size[0]) && is_int($size[1])) {
+					$size	=	rand(
+						$size[0], $size[1]
+					);
+				}
+			}
+
+			if ($configs['lower'] == true) { $string .= $char['low']; }
+			if ($configs['upper'] == true) { $string .= $char['upp']; }
+			if ($configs['numbers'] == true) { $string .= $char['num']; }
+			if ($configs['special'] == true) { $string .= $char['sym']; }
 
 			for ($n = 1; $n <= $size; $n++) {
 				$rand	=	mt_rand(1, strlen($string));
 				$ret	.=	$string[$rand - 1];
 			}
 
+			if ($configs['base64'] == true) { return base64_encode($ret); }
 			return $ret;
 		}
 

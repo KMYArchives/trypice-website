@@ -48,7 +48,7 @@ class CustomerService extends \Stripe\Service\AbstractService
      *
      * @throws \Stripe\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\Customer>
+     * @return \Stripe\Collection<\Stripe\PaymentMethod>
      */
     public function allPaymentMethods($id, $params = null, $opts = null)
     {
@@ -285,11 +285,28 @@ class CustomerService extends \Stripe\Service\AbstractService
      *
      * @throws \Stripe\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\cash_balance
+     * @return \Stripe\CashBalance
      */
     public function retrieveCashBalance($parentId, $params = null, $opts = null)
     {
         return $this->request('get', $this->buildPath('/v1/customers/%s/cash_balance', $parentId), $params, $opts);
+    }
+
+    /**
+     * Retrieves a PaymentMethod object for a given Customer.
+     *
+     * @param string $parentId
+     * @param string $id
+     * @param null|array $params
+     * @param null|array|\Stripe\Util\RequestOptions $opts
+     *
+     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     *
+     * @return \Stripe\Customer
+     */
+    public function retrievePaymentMethod($parentId, $id, $params = null, $opts = null)
+    {
+        return $this->request('get', $this->buildPath('/v1/customers/%s/payment_methods/%s', $parentId, $id), $params, $opts);
     }
 
     /**
@@ -393,7 +410,7 @@ class CustomerService extends \Stripe\Service\AbstractService
     }
 
     /**
-     * Updates a customer’s cash balance.
+     * Changes the settings on a customer’s cash balance.
      *
      * @param string $parentId
      * @param null|array $params
@@ -401,7 +418,7 @@ class CustomerService extends \Stripe\Service\AbstractService
      *
      * @throws \Stripe\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\cash_balance
+     * @return \Stripe\CashBalance
      */
     public function updateCashBalance($parentId, $params = null, $opts = null)
     {

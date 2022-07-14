@@ -167,7 +167,7 @@
 			}
 		}
 
-		public function __construct($change = false) {
+		public function __construct(bool|string $change = false) {
 			error_reporting(0);
 			Utils::load_env();
 			
@@ -182,8 +182,11 @@
 			$this->DBPassword	=	$_ENV['DATABASE_PASS'];
 			$this->DBChar		=	$_ENV['DATABASE_CHARSET'];
 
-			if ($change == true) {
-				$this->DBName	=	$_ENV['DATABASE_DB_CORE'];
+			if ($change) {
+				$this->DBName	=	match($change) {
+					'core'		=>	$_ENV['DATABASE_DB_CORE'],
+					'account'	=>	$_ENV['DATABASE_DB_ACCOUNT'],
+				};
 			}
 
 			$this->Connect();

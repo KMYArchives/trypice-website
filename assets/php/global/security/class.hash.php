@@ -2,7 +2,7 @@
 
 	class Hash {
 
-		public static function token(string $token) {
+		public static function token(string $token): string {
 			return hash('ripemd256',
 				hash('haval256,5',
 					hash('gost',
@@ -16,7 +16,7 @@
 			);
 		}
 
-		public static function openssl(string $key) {
+		public static function openssl(string $key): string {
 			return hash('ripemd256',
 				hash('haval256,5',
 					hash('gost',
@@ -32,7 +32,7 @@
 			);
 		}
 
-		public static function openssl_iv(string $key) {
+		public static function openssl_iv(string $key): string {
 			return substr(
 				hash('gost',
 					hash('tiger192,4',
@@ -46,7 +46,7 @@
 			);
 		}
 
-		public static function user_key(string $user_key) {
+		public static function user_key(string $user_key): string {
 			return hash('tiger192,4',
 				hash('haval256,5',
 					hash('md5',
@@ -56,7 +56,7 @@
 			);
 		}
 
-		public static function pass(string $pass_post, string $pass_db = null, bool $verify = false) {
+		public static function pass(string $pass_post, string $pass_db = null, bool $verify = false): bool|string {
 			if ($verify == false) {
 				return password_hash(
 					$pass_post, PASSWORD_ARGON2I

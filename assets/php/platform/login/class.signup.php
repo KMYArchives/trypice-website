@@ -18,9 +18,7 @@
 
 		private function set_user_key() {
 			return Hash::user_key(
-				Random::string(
-					128, true, true, true
-				) . $_POST['email'] . $_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']
+				Random::slug(128) . $_POST['email'] . $_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']
 			);
 		}
 		
@@ -30,15 +28,11 @@
 		}
 		
 		private function random_username() {
-			return Random::string(
-				16, true, true, true
-			);
+			return Random::slug([ 16, 24 ]);
 		}
 
 		public function execute() {
 			if (Validation::email('email', 'post')) {
-				Headers::setContentType('application/json');
-
 				if ($this->check_email() == 0) {
 					if ($this->db->query("INSERT INTO ws_clients(email, pass, name, ip, userkey, username) VALUES(?, ?, ?, ?, ?, ?)", [
 						$this->prepare_email(),
@@ -48,19 +42,23 @@
 						$this->set_user_key(),
 						$this->random_username(),
 					])) {
-						Headers::setHttpCode(200);
-						echo json_encode([ 'return' => 'success' ]);
+						Callback::json(200, [
+							'return' => 'success'
+						]);
 					} else {
-						Headers::setHttpCode(500);
-						echo json_encode([ 'return' => 'error-created-db' ]);
+						Callback::json(500, [
+							'return' => 'error-created-db'
+						]);
 					}
 				} else {
-					Headers::setHttpCode(500);
-					echo json_encode([ 'return' => 'error-email-existed' ]);
+					Callback::json(500, [
+						'return' => 'error-email-existed'
+					]);
 				}
 			} else {
-				Headers::setHttpCode(500);
-				echo json_encode([ 'return' => 'error-email-invalid' ]);
+				Callback::json(500, [
+					'return' => 'error-email-invalid'
+				]);
 			}
 		}
 

@@ -4,7 +4,7 @@
 
 		private $db, $clients;
 
-		private function license_id() {
+		private function license_id(): int {
 			foreach ($this->db->query("SELECT id FROM ws_licenses WHERE slug = ? OR username = ? LIMIT 1", [
 				Clean::slug($_GET['slug']), 
 				$this->clients->get_id()
@@ -13,7 +13,7 @@
 			return $data['id'];
 		}
 		
-		private function max_count_devices($data) {
+		private function max_count_devices(array $data): bool {
 			$query	=	$this->db->query("SELECT count(*), ws_keys_rules.max_devices FROM ws_keys_rules, ws_products, ws_licenses, ws_linked WHERE ws_linked.license_id = ? AND ws_linked.username = ? AND ws_licenses.prod_id = ws_linked.license_id", [
 				$data['license'], 
 				$data['username']
@@ -26,7 +26,7 @@
 			}
 		}
 
-		public function list() {
+		public function list(): void {
 			$license	=	$this->license_id();
 			$sql_max	=	System::global('sql_max');
 
@@ -56,7 +56,7 @@
 			]);
 		}
 
-		public function unlink() {
+		public function unlink(): void {
 			if ($this->db->query("DELETE FROM ws_linked WHERE slug_item = ? AND username = ?" , [
 				Clean::slug($_POST['slug']), 
 				$this->clients->get_id() 
@@ -71,7 +71,7 @@
 			}
 		}
 
-		public function create($data) {
+		public function create(array $data): void {
 			if ($this->max_count_devices([
 				'license'	=>	$data['license'],
 				'username'	=>	$data['username'],

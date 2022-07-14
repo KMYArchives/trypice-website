@@ -2,7 +2,7 @@
 
 	class Format {
 
-		public static function bytes(string|int $input): string {
+		public static function bytes(int $input): string {
 			return sprintf(
 				'%.02F', $input / pow(
 					1024, floor(

@@ -22,8 +22,6 @@
 				Clean::slug($_GET['username'])
 			]) as $data);
 
-			Headers::setHttpCode(200);
-			Headers::setContentType('application/json');
 			echo IP::decode($data['ip']);
 		}
 
@@ -45,7 +43,7 @@
 			$this->clients	=	new Clients;
 		}
 
-		public function login_details($user_id = null) {
+		public function login_details(string $user_id = null) {
 			foreach ($this->db->query("SELECT name, email, gender, username, confirmed FROM ws_clients WHERE user_id = ?", [ 
 				Clean::slug($user_id)
 			]) as $data) {
