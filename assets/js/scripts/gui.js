@@ -6,6 +6,7 @@ window.onload = e => {
 	HeaderList.layout()
 
 	Classes.add([
+		user_box,
 		account_box,
 		products_box,
 	], 'animate__animated animate__zoomIn animate__faster')
@@ -17,6 +18,11 @@ window.onload = e => {
 			Classes.remove('header', 'header-scroll-effect')
 		}
 	})
+
+	Events.click(user_box_btn, e => {
+		Classes.toggle(user_box_btn, actived)
+        El.toggle(user_box)
+    })
 	
 	Events.click(mask, e => { Modals.close_all() })
 

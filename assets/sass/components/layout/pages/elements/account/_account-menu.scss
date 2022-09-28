@@ -1,0 +1,51 @@
+.account-menu{
+	top: 0;
+	left: 0;
+	width: 100%;
+	position: fixed;
+	z-index: 99999999;
+	line-height: 4.5em;
+	background: $firstColor;
+	font-size: $smallFont + .2;
+	margin-top: $header_size + $padding2;
+	@include drop-shadow-custom(rgba(0, 0, 0, .08), 0 3px 3px);
+
+	.menu{
+		.item{
+			&:first-child{ margin-top: 0; }
+		}
+	}
+
+	.user{
+		float: right;
+		margin-left: 3.8em;
+		text-align: center;
+		margin-right: 3.8em;
+
+		.name{
+			float: left;
+			cursor: pointer;
+			max-width: 18em;
+			@include profile-name-bar;
+			padding-left: $padding_base;
+			padding-right: $padding_base;
+			@include icons{ margin-right: $padding2; }
+		}
+
+		.avatar{
+			float: left;
+			margin-left: 3em;
+			position: relative;
+			@include profile-avatar-circle;
+		}
+
+		.actived{
+			background: $secondColor;
+			border-color: $blueColor;
+		}
+
+		.cover-sidebar{ @include profile-cover(15vh); }
+	}
+
+	@include profile-menu;
+}

@@ -5,8 +5,10 @@ var mask = '.mask',
 	confirm_modal = '#confirm-mdl'
 
 // Header variables
-var account_box = '#account-box',
+var user_box = '#user-box',
+	account_box = '#account-box',
 	products_btn = '#products-btn',
+	user_box_btn = '#user-box-btn',
 	products_box = '#products-box',
 	account_avatar = '#account-avatar'
 

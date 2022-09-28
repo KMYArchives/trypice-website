@@ -10,13 +10,13 @@
 	if (in_array($urlE[0], [
 		null, 'home', 'product', 'products', 'support'
 	])) {
-		include_once System::dir('pages') . 'page.php';
+		App::view(System::dir('pages') . 'page.php');
 	} else if ($urlE[0] == 'login') {
-		include System::dir('pages') . 'login.php';
+		App::view(System::dir('pages') . 'login.php');
 	} else if ($urlE[0] == 'account') {
-		include System::dir('pages') . 'account.php';
+		App::view(System::dir('pages') . 'account.php');
 	} else if ($products->check_slug($urlE[0])) {
-		include_once System::dir('pages') . 'view-product.php';
+		App::view(System::dir('pages') . 'view-product.php');
 	} else if (in_array($urlE[0], [
 		'yuki', 'apis'
 	])) {

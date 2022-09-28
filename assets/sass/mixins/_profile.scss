@@ -1,55 +1,64 @@
 @mixin profile-menu{
 	.menu{
-		padding: 1.3vh;
+		float: none;
+		position: absolute;
+		margin-left: 3.8em;
+		padding-top: $border_size;
 
 		.item{
-			display: block;
+			float: left;
+			font-size: 1em;
 			cursor: pointer;
-			line-height: 4.75vh;
-			border-radius: $padding2;
+			font-weight: bold;
+			line-height: 3.6em;
 			padding-left: $padding_base;
 			padding-right: $padding_base;
-			border-left-color: transparent;
+			border-bottom: .2em solid transparent;
 
 			@include icons{
 				float: left;
 				width: 4.75vh;
 				text-align: center;
-				line-height: 4.75vh;
-				margin-right: $padding_base;
+				line-height: 3.6em;
 				margin-left: -$padding_base;
 			}
 
 			@include hover{
-				@include drop-shadow-sm;
+				border-color: $blueColor;
 				transition: .3s ease-in-out;
-				border-left: $padding1 solid $blueColor;
 			}
 		}
 
 		.actived{
-			@include drop-shadow-sm;
 			background: $secondColor;
-			border-left: $padding1 solid $blueColor;
+			border-color: $blueColor;
 		}
 	}
 }
 
 @mixin profile-name-bar{
 	cursor: pointer;
-	font-size: 1.75vh;
+	line-height: 5vh;
+	font-size: 1.1em;
+	font-weight: bold;
+	line-height: 3.3em;
 	text-align: center;
 	text-decoration: none;
+	box-sizing: border-box;
 	@include text-shadow-sm;
-	line-height: $padding_base * 2;
+	border-bottom: .2em solid transparent;
 	background: rgba($color: $firstColor, $alpha: .75);
-	@include hover-custom{ text-decoration: underline; }
+
+	@include hover{
+		border-color: $blueColor;
+		transition: .3s ease-in-out;
+	}
 }
 
 @mixin profile-avatar-circle{
 	width: 7vh;
+	left: $padding2;
 	border-radius: 50%;
-	@include drop-shadow-sm;
 }
 
 @mixin profile-cover($size: 15vh){

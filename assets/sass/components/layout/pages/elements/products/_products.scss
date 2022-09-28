@@ -3,6 +3,7 @@
 	display: block;
 	position: absolute;
 	text-align: center;
+	z-index: 99999999999;
 	border-radius: $padding2;
 	margin-top: $header_size * 3;
 

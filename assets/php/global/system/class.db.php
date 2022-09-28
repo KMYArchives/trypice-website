@@ -166,31 +166,6 @@
 				}
 			}
 		}
-
-		public function __construct(bool|string $change = false) {
-			error_reporting(0);
-			Utils::load_env();
-			
-			$this->parameters	=	[];
-			$this->logObject	=	new PDOLog;
-			
-			$this->DBName		=	$_ENV['DATABASE_DB'];
-			$this->Dsn			=	$_ENV['DATABASE_DSN'];
-			$this->DBUser		=	$_ENV['DATABASE_USER'];
-			$this->Host			=	$_ENV['DATABASE_HOST'];
-			$this->DBPort		=	$_ENV['DATABASE_PORT'];
-			$this->DBPassword	=	$_ENV['DATABASE_PASS'];
-			$this->DBChar		=	$_ENV['DATABASE_CHARSET'];
-
-			if ($change) {
-				$this->DBName	=	match($change) {
-					'core'		=>	$_ENV['DATABASE_DB_CORE'],
-					'account'	=>	$_ENV['DATABASE_DB_ACCOUNT'],
-				};
-			}
-
-			$this->Connect();
-		}
 		
 		public function single($query, $params = null) {
 			$this->Init($query, $params);
@@ -223,6 +198,32 @@
 		public function closeConnection() { $this->pdo = null; }
 
 		public function commit() { return $this->pdo->commit(); }
+
+		public function __construct(bool|string $change = false) {
+			error_reporting(0);
+			Utils::load_env();
+			
+			$this->parameters	=	[];
+			$this->logObject	=	new PDOLog;
+			
+			$this->DBName		=	$_ENV['DATABASE_DB'];
+			$this->Dsn			=	$_ENV['DATABASE_DSN'];
+			$this->DBUser		=	$_ENV['DATABASE_USER'];
+			$this->Host			=	$_ENV['DATABASE_HOST'];
+			$this->DBPort		=	$_ENV['DATABASE_PORT'];
+			$this->DBPassword	=	$_ENV['DATABASE_PASS'];
+			$this->DBChar		=	$_ENV['DATABASE_CHARSET'];
+
+			if ($change) {
+				$this->DBName	=	match($change) {
+					'core'		=>	$_ENV['DATABASE_DB'],
+					'account'	=>	$_ENV['DATABASE_DB_ACCOUNT'],
+					'workspace'	=>	$_ENV['DATABASE_DB_WORKSPACE'],
+				};
+			}
+
+			$this->Connect();
+		}
 
 		public function rollBack() { return $this->pdo->rollBack(); }
 

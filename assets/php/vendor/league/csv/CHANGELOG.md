@@ -248,13 +248,13 @@ feature proposed and developed by [Darren Miller](https://github.com/dmlogic)
 ### Added
 
 - Adding support for controlling empty record presence in `Reader::getRecords` return value.
-  - `Reader::includeEmptyRecords`
+  - `Reader::viewEmptyRecords`
   - `Reader::skipEmptyRecords`
   - `Reader::isEmptyRecordsIncluded`
 
 - Adding support for controlling Input BOM usage in the library:
   - `AbstractCsv::skipInputBOM`
-  - `AbstractCsv::includeInputBOM`
+  - `AbstractCsv::viewInputBOM`
   - `AbstractCsv::isInputBOMIncluded`
 
 ### Deprecated

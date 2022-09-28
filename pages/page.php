@@ -36,19 +36,20 @@
 <body>
 	<?php
 	
-		include_once 'assets/php/views/header.php';
-		include_once 'assets/php/views/account-box.php';
+		App::view([
+			'assets/php/views/header.php',
+			'assets/php/views/account-box.php'
+		]);
 		
 	?>
 
 	<div class="products-box" id="products-box"></div>
-
 	<section class="content"></section>
 
 	<?php
 	
 		Loader::js([
-			'https://js.stripe.com/v3'
+			'https://checkout.stripe.com/checkout.js'
 		]);
 		
 	?>

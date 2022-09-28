@@ -1,9 +1,12 @@
-@import 'elements/account/account-side';
+
+@import 'elements/account/account-menu';
+@import 'elements/account/boxes/user-box';
 
 .account{
 	top: 0;
 	position: absolute;
 	margin-left: $wdith_user_box;
+	margin-top: $header_size + $padding3;
 
 	@import 'elements/account/list';
 	@import 'elements/account/card-area';

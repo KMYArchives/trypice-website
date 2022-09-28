@@ -46,3 +46,10 @@
 	-moz-box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
 	-webkit-box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
 }
+
+@mixin drop-shadow-custom($color, $size) {
+	box-shadow: $color $size;
+	-ms-box-shadow: $color $size;
+	-moz-box-shadow: $color $size;
+	-webkit-box-shadow: $color $size;
+}

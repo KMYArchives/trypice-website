@@ -45,7 +45,7 @@
 	<div class="products-box" id="products-box"></div>
 
 	<div class="content">
-		<?php include_once 'assets/php/views/account-side.php'; ?>
+		<?php include_once 'assets/php/views/account-menu.php'; ?>
 
 		<div class="account" id="page-account-content">
 			<div class="list">

@@ -1,0 +1,33 @@
+.user-box{
+	top: 0;
+	right: 0;
+	width: 16em;
+	display: none;
+	position: fixed;
+	z-index: 9999999999;
+	margin-right: 3.2em;
+	background: $firstColor;
+	@include drop-shadow-sm;
+	border-bottom-left-radius: $padding2;
+	border-bottom-right-radius: $padding2;
+	margin-top: $header_size + $padding_base * 3.3;
+
+	.item{
+		cursor: pointer;
+		font-size: $smallFont + .2;
+		line-height: $padding_base * 3.5;
+
+		@include icons{
+			float: left;
+			width: 3.5em;
+			text-align: center;
+			line-height: $padding_base * 3.5;
+		}
+
+		@include hover;
+		&:last-child{
+			border-bottom-left-radius: $padding2;
+			border-bottom-right-radius: $padding2;
+		}
+	}
+}

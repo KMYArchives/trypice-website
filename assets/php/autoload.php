@@ -33,6 +33,9 @@
 		}
 	}
 
+	// App
+	$app			=	new App;
+
 	// Login
 	$csrf			=	new CSRF;
 	$login			=	new Login;
