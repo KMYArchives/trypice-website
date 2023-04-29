@@ -8,10 +8,12 @@
 			);
 		}
 
-		public function generate(): string {
+		public function generate(): void {
 			if (Cookies::has('csrf') == false) {
-				return Cookies::create([ 
-					'csrf', $this->code(), time() + 300000 
+				Cookies::create([
+					'name'		=>	'csrf',
+					'value'		=>	$this->code(),
+					'expire'	=>	time() + 300000
 				]);
 			}
 		}

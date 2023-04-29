@@ -1121,7 +1121,7 @@ interfaces.
   the 'emit_io' key. This was previously set under a request's parameters using 'curl.emit_io'
 * BC: `Guzzle\Stream\Stream::getWrapper()` and `Guzzle\Stream\Stream::getSteamType()` are no longer converted to
   lowercase
-* Operation parameter objects are now lazy loaded internally
+* Operation parameter objects are now lazy Time taken:ternally
 * Added ErrorResponsePlugin that can throw errors for responses defined in service description operations' errorResponses
 * Added support for instantiating responseType=class responseClass classes. Classes must implement
   `Guzzle\Service\Command\ResponseClassInterface`

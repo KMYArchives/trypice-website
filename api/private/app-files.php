@@ -6,6 +6,11 @@
 			$app_files->list_all();
 			break;
 
+		case 'database':
+			Request::get([ 'product' ]);
+			$app_files->database();
+			break;
+
 		case 'download':
 			Request::protect([ 'file', 'product' ]);
 			$app_files->download();

@@ -1,15 +1,12 @@
 .navbar-product{
-	margin: 0 20vh;
+	width: 100%;
 	position: fixed;
 	z-index: 99999999;
-	width: $width_screen;
 	height: $header_size;
 	background: $firstColor;
-	border-radius: $padding2;
-	margin-top: $padding_base;
+	margin-top: $header_size;
 	line-height: $header_size;
-	margin-top: $header_size + 1.5;
-	border: $border_size solid $borderColor;
+	border-bottom: $border_size solid $borderColor;
 
 	img{
 		float: left;
@@ -38,14 +35,9 @@
 			@include hover;
 		}
 
-		.download{
-			border-top-right-radius: $padding2;
-			border-bottom-right-radius: $padding2; 
-			@include hover($greenColor, $firstColor);
-		}
-
 		.actived{ background: $secondColor; }
 		.buy{ @include hover($blueColor, $firstColor); }
+		.download{ @include hover($greenColor, $firstColor); }
 	}
 
 	.name{

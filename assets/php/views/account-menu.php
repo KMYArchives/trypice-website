@@ -2,7 +2,7 @@
 	<div class="user">
 		<div class="name" id="user-box-btn">
 			<div class="fa-solid fa-user"></div>
-			Emily Silva
+			César Silva
 		</div>
 	</div>
 
